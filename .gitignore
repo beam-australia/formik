@@ -7,6 +7,8 @@ node_modules
 # builds
 build
 dist
+.out
+storybook-static
 .rpt2_cache
 
 # misc
