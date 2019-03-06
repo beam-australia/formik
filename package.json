@@ -20,8 +20,8 @@
     "build": "rollup -c",
     "start": "rollup -c -w",
     "prepare": "yarn run build",
-    "predeploy": "build-storybook",
-    "deploy": "deploy-storybook"
+    "predeploy": "build-storybook -c .storybook -o .out",
+    "deploy": "storybook-to-ghpages"
   },
   "peerDependencies": {
     "@material-ui/core": "^3.9.2",
