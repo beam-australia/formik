@@ -1,4 +1,4 @@
-# formik
+# Beam Formik
 
 > Formik components and utilities
 
