@@ -8,15 +8,13 @@ import {
   mammals,
   insects,
   fungi,
-  birds,
-  reptiles,
-  ungulates
+  birds
 } from 'stories/kingdoms'
 import {
   TextField,
   Password,
   Select,
-  Autocomplete,
+  // Autocomplete,
   Switch,
   Checkbox,
   CheckboxGroup,
@@ -84,7 +82,7 @@ export default props => (
         />
       </Grid>
     </Grid>
-    <Grid container spacing={24}>
+    {/* <Grid container spacing={24}>
       <Grid item xs={6}>
         <Field
           name='reptiles'
@@ -104,7 +102,7 @@ export default props => (
           helperText='Start typing to suggest an Ungulate'
         />
       </Grid>
-    </Grid>
+    </Grid> */}
     <Grid container spacing={24}>
       <Grid item xs={6}>
         <CheckboxGroup

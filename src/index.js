@@ -1,5 +1,5 @@
 import Password from './fields/Password'
-import Autocomplete from './fields/Autocomplete'
+// import Autocomplete from './fields/Autocomplete'
 import Select from './fields/Select'
 import TextField from './fields/TextField'
 import RadioGroup from './fields/RadioGroup'
@@ -19,7 +19,7 @@ import transformErrors from './lib/transformErrors'
 export {
   Password,
   Select,
-  Autocomplete,
+  // Autocomplete,
   TextField,
   RadioGroup,
   Switch,
