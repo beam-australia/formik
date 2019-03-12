@@ -3,6 +3,9 @@ export default theme => ({
     position: 'relative',
     display: 'inline-flex'
   },
+  fullWidth: {
+    width: '100%'
+  },
   progress: {
     position: 'absolute',
     top: '50%',
