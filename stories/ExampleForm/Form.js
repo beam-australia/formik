@@ -148,8 +148,8 @@ export default props => (
       </Grid>
     </Grid>
     <Grid container spacing={24}>
-      <Grid item xs={12}>
-        <SubmitButton>Create Researcher</SubmitButton>
+      <Grid item xs={4}>
+        <SubmitButton fullWidth>Create Researcher</SubmitButton>
       </Grid>
     </Grid>
     <Grid container spacing={24}>
