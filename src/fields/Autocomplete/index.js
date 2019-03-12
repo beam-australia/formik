@@ -4,6 +4,11 @@ import MuiDownshift from 'mui-downshift'
 import { fieldToSelect } from 'formik-material-ui'
 import getInputProps from './getInputProps'
 
+/**
+ * @note There is an issue with react-virtualised and this npm package "mui-downshift"
+ * @note Awaiting implementation of a non eact-virtualised solution from the owner.
+ */
+
 class Autocomplete extends Component {
   state = {
     filteredItems: []
