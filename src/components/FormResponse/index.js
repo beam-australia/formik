@@ -15,8 +15,8 @@ const Posed = posed.div({
   after: { y: 0, opacity: 1 }
 })
 
-const FormResponse = ({ classes, formik }) => {
-  if (get(formik, 'formik.status.message.length', 0) < 1) {
+export const FormResponse = ({ classes, formik: { status } }) => {
+  if (get(status, 'message.length', 0) < 1) {
     return null
   }
   const isError = status.success === false
