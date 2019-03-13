@@ -1,4 +1,4 @@
-import onFormSubmit from 'lib/onFormSubmit'
+import onFormSubmit from '../onFormSubmit'
 
 it('calls action with form values', () => {
   const action = values => new Promise((resolve, reject) => {

@@ -1,7 +1,7 @@
-import handleException from 'lib/handleException'
-import transformErrors from 'lib/transformErrors'
+import handleException from '../handleException'
+import transformErrors from '../transformErrors'
 
-jest.mock('lib/transformErrors')
+jest.mock('../transformErrors')
 
 it('sets correct message on 502 exception', () => {
   const response = { statusCode: 502 }
@@ -43,7 +43,7 @@ it('sets allows message to be overridden', () => {
 })
 
 it('sets transforms and sets errors', () => {
-  transformErrors.mockReturnValue({ field_1: 'Missing value' });
+  transformErrors.mockReturnValue({ field_1: 'Missing value' })
   const response = { message: 'foo bar' }
   const actions = {
     setStatus: jest.fn(),

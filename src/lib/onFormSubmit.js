@@ -7,10 +7,10 @@ import handleException from './handleException'
  * @param {Object} options options to override messages
  * @return {Promise}
  */
-export default function onFormSubmit(action, options = {}) {
+export default function onFormSubmit(action, options = { error: '', success: '' }) {
   return (values, actions) => {
     return action(values)
-      .then(response => handleResponse(response, actions, options))
-      .catch(response => handleException(response, actions, options))
+      .then(response => handleResponse(response, actions, options.success))
+      .catch(response => handleException(response, actions, options.error))
   }
 }
