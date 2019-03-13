@@ -6,7 +6,10 @@
  * @return {Object}
  */
 export default function formResponse(response, actions, override = '') {
-  actions.setStatus({ success: override.length ? override : response.message })
+  actions.setStatus({
+    success: true,
+    message: override.length ? override : response.message
+  })
   actions.setSubmitting(false)
   return response
 }

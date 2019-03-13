@@ -8,17 +8,19 @@ import transformErrors from './transformErrors'
  * @return {undefined}
  */
 export default function handleException(response, actions, override = '') {
+  let message = ''
   switch (response.statusCode) {
     case 502:
-      actions.setStatus({ error: 'We are currently doing some maintenece, please come back later.' })
+      message = 'We are currently doing some maintenece, please come back later.'
       break
     case 422:
-      actions.setStatus({ error: 'Please address the errors above.' })
+      message = 'Please address the errors above.'
       break
     default:
-      actions.setStatus({ error: override.length ? override : response.message })
+      message = override.length ? override : response.message
       break
   }
+  actions.setStatus({ success: false, message })
   actions.setErrors(transformErrors(response))
   actions.setSubmitting(false)
 }
