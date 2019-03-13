@@ -1,4 +1,4 @@
-import transformErrors from 'lib/transformErrors'
+import transformErrors from '../transformErrors'
 
 it('handles empty errors', () => {
   const response = {}
