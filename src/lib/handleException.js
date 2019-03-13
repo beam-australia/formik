@@ -4,10 +4,10 @@ import transformErrors from './transformErrors'
  * Form exception utility
  * @param {Object} response
  * @param {Object} actions
- * @param {string} message override exception message
+ * @param {string} override replaces exception message
  * @return {undefined}
  */
-export default function handleException(response, actions, message = '') {
+export default function handleException(response, actions, override = '') {
   switch (response.statusCode) {
     case 502:
       actions.setStatus({ error: 'We are currently doing some maintenece, please come back later.' })
@@ -16,7 +16,7 @@ export default function handleException(response, actions, message = '') {
       actions.setStatus({ error: 'Please address the errors above.' })
       break
     default:
-      actions.setStatus({ error: message.length ? message : response.message })
+      actions.setStatus({ error: override.length ? override : response.message })
       break
   }
   actions.setErrors(transformErrors(response))
