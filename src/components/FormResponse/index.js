@@ -1,6 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import posed from 'react-pose'
+import get from 'lodash/get'
 import { connect } from 'formik'
 import classNames from 'classnames'
 import ErrorIcon from '@material-ui/icons/ErrorOutline'
@@ -14,11 +15,11 @@ const Posed = posed.div({
   after: { y: 0, opacity: 1 }
 })
 
-const FormResponse = ({ classes, formik: { status = undefined } }) => {
-  if (typeof status === 'undefined') {
+const FormResponse = ({ classes, formik }) => {
+  if (get(formik, 'formik.status.message.length', 0) < 1) {
     return null
   }
-  const isError = Boolean(status.error)
+  const isError = status.success === false
   const errorClass = {
     [classes.error]: isError,
     [classes.success]: !isError
@@ -33,9 +34,7 @@ const FormResponse = ({ classes, formik: { status = undefined } }) => {
           <Typography
             variant='body1'
             className={classNames(classes.typography, errorClass)}
-          >
-            {isError ? status.error : status.success}
-          </Typography>
+          >{status.message}</Typography>
         </div>
       </div>
     </Posed>
