@@ -27,7 +27,8 @@ it('sets message from response by default', () => {
   }
   handleResponse(response, actions)
   expect(actions.setStatus.mock.calls[0][0]).toEqual({
-    success: 'foo bar'
+    success: true,
+    message: 'foo bar'
   })
 })
 
@@ -39,6 +40,7 @@ it('sets allows message to be overridden', () => {
   }
   handleResponse(response, actions, 'overridden foo bar')
   expect(actions.setStatus.mock.calls[0][0]).toEqual({
-    success: 'overridden foo bar'
+    success: true,
+    message: 'overridden foo bar'
   })
 })

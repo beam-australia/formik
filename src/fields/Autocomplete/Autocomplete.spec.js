@@ -1,6 +1,6 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
-import { Formik, Form, Field } from 'formik'
+import { Formik, Form } from 'formik'
 // import Autocomplete from './'
 
 it.skip('renders without crashing', () => {

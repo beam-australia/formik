@@ -12,7 +12,8 @@ it('sets correct message on 502 exception', () => {
   }
   handleException(response, actions)
   expect(actions.setStatus.mock.calls[0][0]).toEqual({
-    error: 'We are currently doing some maintenece, please come back later.'
+    message: 'We are currently doing some maintenece, please come back later.',
+    success: false
   })
 })
 
@@ -25,7 +26,8 @@ it('sets message from response by default', () => {
   }
   handleException(response, actions)
   expect(actions.setStatus.mock.calls[0][0]).toEqual({
-    error: 'foo bar'
+    message: 'foo bar',
+    success: false
   })
 })
 
@@ -38,7 +40,8 @@ it('sets allows message to be overridden', () => {
   }
   handleException(response, actions, 'overridden foo bar')
   expect(actions.setStatus.mock.calls[0][0]).toEqual({
-    error: 'overridden foo bar'
+    message: 'overridden foo bar',
+    success: false
   })
 })
 
