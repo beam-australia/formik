@@ -23,6 +23,7 @@ class Select extends React.Component {
     return (
       <FormControl helperText={helperText} name={name}>
         <InputLabel
+          variant={rest.variant}
           htmlFor={name}
           ref={ref => { this.labelRef = ref }}
         >{label}</InputLabel>
@@ -62,6 +63,7 @@ Select.propTypes = {
 }
 
 Select.defaultProps = {
+  variant: 'standard',
   valueKey: 'slug',
   nameKey: 'name',
   items: [],
