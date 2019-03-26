@@ -18,7 +18,7 @@
     "predeploy": "build-storybook -c .storybook -o .out",
     "deploy": "storybook-to-ghpages",
     "preversion": "yarn build && yarn test",
-    "postversion": "git push origin --tags"
+    "postversion": "git push --tags && git push"
   },
   "peerDependencies": {
     "@material-ui/core": "^3.0.0",
