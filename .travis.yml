@@ -4,10 +4,14 @@ node_js:
   - '9'
 install:
   - yarn install
-script:
+before_script:
   - yarn run build
+script:
   - yarn run test
+after_success:
   - yarn run deploy-storybook -- --ci
+before_deploy:
+  - yarn version --new-version=$TRAVIS_TAG
 deploy:
   provider: npm
   email: andrewmclagan@gmail.com
