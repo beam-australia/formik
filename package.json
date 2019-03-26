@@ -1,6 +1,6 @@
 {
   "name": "@beam-australia/formik",
-  "version": "1.0.7",
+  "version": "1.0.10",
   "description": "Formik components and utilities",
   "author": "andrewmclagan",
   "license": "MIT",
@@ -12,7 +12,7 @@
   "module": "dist/index.es.js",
   "jsnext:main": "dist/index.es.js",
   "engines": {
-    "node": ">=8",
+    "node": ">=9",
     "npm": ">=5"
   },
   "scripts": {
@@ -23,7 +23,9 @@
     "build": "rollup -c",
     "start": "rollup -c -w",
     "predeploy": "build-storybook -c .storybook -o .out",
-    "deploy": "storybook-to-ghpages"
+    "deploy": "storybook-to-ghpages",
+    "preversion": "yarn build && yarn test && echo $npm_package_version",
+    "postversion": "grf $npm_package_version"
   },
   "peerDependencies": {
     "@material-ui/core": "^3.0.0",
