@@ -9,18 +9,10 @@ script:
   - yarn run test
   - yarn run deploy
 deploy:
-  matrix:
-    - provider: npm
-      email: andrewmclagan@gmail.com
-      api_key:
-        secure: bKdRZnayDzrNEcWCtb2XDw2v/+sWtLV8Bcv5dDg8fHAggPEY/sXd7XiUOUEzp45NZf0KX4uhsOuB3VZVS9SO9lc7KnpyUH2jaLR1WAabNlP4KYitzM2dagWVU58mAW/huPauDBIEVPpv0RlfO5anR4VLb6OnOI28j1f5lPfBXAKG2sor7GltwZlKYQM9/zVQuFi7fyDwsnLSbFBR5rt7VTsoRUD+RECi3mV+4lTOOtBwRsxvLn3bqEUAA81SsRuwifI3anMJcs/eOVdz2lRymqrt3K2skwnxtLp0huSZ2X8u0qiiu0XTbk7KTVP5s+edwqyNexBze0xbMhryfSinFRN0DLwiDoz20GFrbbNAje+d+E3/Cqm5UjhXaNy0/OGNKDoWkKXwl28O1/eLigtub+yS3KSdnOf5obwAw9SDDwglHY2ZplyJOPdjmajqMVFET3ZQab/YZ1I08nWaNgiGfa9zOEkZ3HZu9HXivvdUiwhYPXGcq9iNAXwxExsxVEh67eZNJJtCxe5xcFAc6JnSDcK3Nwz7eg6oNZpiFKLzF2WTsO0W527cKTiVIsYWyd5YfD1xzqIc4dOiATLs+i1uxO7jn19JjQC8p1D0215FTFJYZCGcmIA/Gymki8F8GCVtqqKwDOJPOux8jKdn//Pa+9Q8bT/h7Qx73yF8/QVg6TI=
-      on:
-        tags: true
-    - provider: pages
-      skip-cleanup: true
-      keep-history: true
-      github-token:
-        secure: ZPqoR87NWQc+h7K3t5WkleDIGh/ZgSDxxLhoYsHkHdtyXOTL0rId9B0F/DBKic9BwfHwCpYxOuw5aZ/80BUK+g9XX+1/24BhybCVim8Q6WEy9+dDRjV+mOfOWqL+VbLD/qHLhqL+InFRFZvR5iruullZzCvsXMwHSvlPTbNIG0QSBGISOATR7R3tz4Mg9drsbe4ZPReMHAuM9TVfMhRrghluDmaBebQ3B2T5Go+5Uifzz9AdaAJzDfDPZjRUq3whWmtT0bC/pG8TJyKNUfklYE0u4qZqCGtEwRxVFPLCeZK1da+p9Dkt9rKbC5Xl2K9gfnJezj60G0jpIJ48JtfqWODeU2PVTG/bOQ4GZEe0Zveee26gidn9F66JnnDO5IycFyTQLZk1gb4RvMkw6YJIw/kzCOj1Z4K90+NTKnhzKSQCbjpQKuYa98ZR9rijF1+BL/a5UIBeXrE2I9wTDy5eb0rNtcJWBLUdV7XAxRKbz9w7hsvntOv3Xec6cjmu7bQrVoP1vMD20Xjlld7MIt9VaGAUaDYy+rTaHZL5bUOPvaqf7WR9BdESydEBo2TOYgVzJ6cU/HeMKoVmiw9cqh397mY4d08LRr/xftYa6cXZdM7T1JHQ3jyw7aeC97yUUSz+6ciyKAFpUf+xscR0/8z/8hKQHbXNdb0r0iaNnPolmZM=
-      on:
-        tags: true
+  provider: npm
+  email: andrewmclagan@gmail.com
+  api_key:
+    secure: bKdRZnayDzrNEcWCtb2XDw2v/+sWtLV8Bcv5dDg8fHAggPEY/sXd7XiUOUEzp45NZf0KX4uhsOuB3VZVS9SO9lc7KnpyUH2jaLR1WAabNlP4KYitzM2dagWVU58mAW/huPauDBIEVPpv0RlfO5anR4VLb6OnOI28j1f5lPfBXAKG2sor7GltwZlKYQM9/zVQuFi7fyDwsnLSbFBR5rt7VTsoRUD+RECi3mV+4lTOOtBwRsxvLn3bqEUAA81SsRuwifI3anMJcs/eOVdz2lRymqrt3K2skwnxtLp0huSZ2X8u0qiiu0XTbk7KTVP5s+edwqyNexBze0xbMhryfSinFRN0DLwiDoz20GFrbbNAje+d+E3/Cqm5UjhXaNy0/OGNKDoWkKXwl28O1/eLigtub+yS3KSdnOf5obwAw9SDDwglHY2ZplyJOPdjmajqMVFET3ZQab/YZ1I08nWaNgiGfa9zOEkZ3HZu9HXivvdUiwhYPXGcq9iNAXwxExsxVEh67eZNJJtCxe5xcFAc6JnSDcK3Nwz7eg6oNZpiFKLzF2WTsO0W527cKTiVIsYWyd5YfD1xzqIc4dOiATLs+i1uxO7jn19JjQC8p1D0215FTFJYZCGcmIA/Gymki8F8GCVtqqKwDOJPOux8jKdn//Pa+9Q8bT/h7Qx73yF8/QVg6TI=
+  on:
+    tags: true
 cache: yarn
