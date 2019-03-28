@@ -8,12 +8,14 @@ import {
   mammals,
   insects,
   fungi,
-  birds
+  birds,
+  invertebrates
 } from 'stories/kingdoms'
 import {
   TextField,
   Password,
   Select,
+  TreeSelect,
   // Autocomplete,
   Switch,
   Checkbox,
@@ -103,6 +105,17 @@ export default props => (
         />
       </Grid>
     </Grid> */}
+    <Grid container spacing={24}>
+      <Grid item xs={12}>
+        <Field
+          name='invertebrates'
+          label='Invertebrates'
+          component={TreeSelect}
+          items={invertebrates}
+          helperText='Select types of invertebrates'
+        />
+      </Grid>
+    </Grid>
     <Grid container spacing={24}>
       <Grid item xs={6}>
         <CheckboxGroup
