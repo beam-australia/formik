@@ -58,3 +58,67 @@ export const ungulates = [
   { id: 13, slug: 'deer', name: 'Deer' },
   { id: 13, slug: 'hippopotamuses', name: 'Hippopotamuses' }
 ]
+
+export const invertebrates = [
+  {
+    id: 1,
+    slug: 'porifera',
+    name: 'Porifera',
+    children: [
+      { id: 1, slug: 'brain-sponge', name: 'Brain Sponge' },
+      { id: 2, slug: 'sulphur-sponge', name: 'Sulphur Sponge' },
+      { id: 3, slug: 'vase-sponge', name: 'Vase Sponge' },
+      { id: 4, slug: 'boring-sponge', name: 'Boring Sponge' },
+      { id: 5, slug: 'heavenly-sponge', name: 'Heavenly Sponge' },
+    ]
+  },
+  {
+    id: 2,
+    slug: 'cnidarians',
+    name: 'Cnidarians',
+    children: [
+      { id: 1, slug: 'pale-anemone', name: 'Pale Anemone' },
+      { id: 2, slug: 'hidden-anemone', name: 'Hidden Anemone' },
+      { id: 3, slug: 'fire-coral', name: 'Fire Coral' },
+      { id: 4, slug: 'plume-hydroid', name: 'Plume Hydroid' },
+      { id: 5, slug: 'thread-hydroid', name: 'Thread Hydroid' },
+      { id: 6, slug: 'moon-jelly', name: 'Moon Jelly' },
+      { id: 7, slug: 'sea-nettle', name: 'Sea Nettle' },
+    ]
+  },
+  {
+    id: 3,
+    slug: 'platyhelminthes',
+    name: 'Platyhelminthes',
+    children: [
+      { id: 1, slug: 'blood-fluke', name: 'Blood fluke' },
+      { id: 2, slug: 'liver-fluke', name: 'Liver fluke' },
+      { id: 3, slug: 'taenia', name: 'Taenia' },
+      { id: 4, slug: 'tapeworm', name: 'Tapeworm' },
+    ]
+  },
+  {
+    id: 4,
+    slug: 'mollusca',
+    name: 'Mollusca',
+    children: [
+      { id: 1, slug: 'snail', name: 'Snail' },
+      { id: 2, slug: 'clam', name: 'Clam' },
+      { id: 3, slug: 'mussel', name: 'Mussel' },
+      { id: 4, slug: 'oyster', name: 'Oyster' },
+      { id: 5, slug: 'slug', name: 'Slug' },
+      { id: 6, slug: 'limpet', name: 'Limpet' },
+      { id: 7, slug: 'scallop', name: 'Scallop' },
+    ]
+  },
+  {
+    id: 5,
+    slug: 'arthropoda',
+    name: 'Arthropoda',
+    children: [
+      { id: 1, slug: 'insect', name: 'Insect' },
+      { id: 2, slug: 'arachnid', name: 'Arachnid' },
+      { id: 3, slug: 'crustacean', name: 'Crustacean' },
+    ]
+  },
+]
