@@ -9,6 +9,7 @@ build
 dist
 .out
 storybook-static
+.out
 .rpt2_cache
 
 # misc
