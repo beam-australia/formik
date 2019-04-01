@@ -9,7 +9,7 @@ import getAcceptedTypes from './getAcceptedTypes'
 import DeleteButton from './DeleteButton'
 import '@uppy/core/dist/style.css'
 import '@uppy/dashboard/dist/style.css'
-import './styles.css'
+import styles from './styles.css'
 
 class Upload extends React.Component {
   constructor(props) {
