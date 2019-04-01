@@ -7,11 +7,10 @@ import RadioGroup from './fields/RadioGroup'
 import Switch from './fields/Switch'
 import Checkbox from './fields/Checkbox'
 import CheckboxGroup from './fields/CheckboxGroup'
-
+import Upload from './fields/Upload'
 import SubmitButton from './components/SubmitButton'
 import FormResponse from './components/FormResponse'
 import FormControl from './components/FormControl'
-
 import handleException from './lib/handleException'
 import handleResponse from './lib/handleResponse'
 import onFormSubmit from './lib/onFormSubmit'
@@ -27,6 +26,7 @@ export {
   Switch,
   Checkbox,
   CheckboxGroup,
+  Upload,
   SubmitButton,
   FormResponse,
   FormControl,

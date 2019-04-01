@@ -9,6 +9,8 @@ export default Yup.object().shape({
   // reptiles: Yup.string().min(6).required(),
   // ungulates: Yup.string().min(6).required(),
   insects: Yup.array().of(Yup.string()).min(2).required(),
+  invertebrates: Yup.array().of(Yup.string()).min(2).required(),
+  research_document: Yup.object().nullable().required('File upload is required'),
   birds: Yup.string().min(5).max(50).required(),
   expert: Yup.bool().required(),
   phd: Yup.bool().required()

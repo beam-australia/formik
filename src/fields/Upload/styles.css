@@ -1,0 +1,17 @@
+.uppy-DashboardContent-bar {
+  display: none !important;
+}
+.uppy-Dashboard-inner {
+  min-height: 0 !important;
+}
+
+.beam.upload-field .upload-field-dashboard {
+  position: relative;
+  width: 470px;
+}
+.beam.upload-field .beam.upload-field-button {
+  position: absolute;
+  right: 15px;
+  z-index: 1;
+  top: 21px;
+}
