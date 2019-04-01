@@ -16,10 +16,10 @@ import {
   Password,
   Select,
   TreeSelect,
-  // Autocomplete,
   Switch,
   Checkbox,
   CheckboxGroup,
+  Upload,
   RadioGroup,
   SubmitButton,
   FormControl,
@@ -35,7 +35,6 @@ export default props => (
           label='Researcher first name'
           variant='outlined'
           component={TextField}
-
         />
       </Grid>
       <Grid item xs={6}>
@@ -45,8 +44,6 @@ export default props => (
           component={TextField}
         />
       </Grid>
-    </Grid>
-    <Grid container spacing={24}>
       <Grid item xs={6}>
         <Field
           name='password'
@@ -62,8 +59,6 @@ export default props => (
           component={Password}
         />
       </Grid>
-    </Grid>
-    <Grid container spacing={24}>
       <Grid item xs={6}>
         <Field
           name='mammals'
@@ -83,29 +78,6 @@ export default props => (
           helperText='Select a species of fungi'
         />
       </Grid>
-    </Grid>
-    {/* <Grid container spacing={24}>
-      <Grid item xs={6}>
-        <Field
-          name='reptiles'
-          label='Reptiles'
-          variant='outlined'
-          component={Autocomplete}
-          items={reptiles}
-          helperText='Start typing to suggest a reptile'
-        />
-      </Grid>
-      <Grid item xs={6}>
-        <Field
-          name='ungulates'
-          label='Ungulates'
-          component={Autocomplete}
-          items={ungulates}
-          helperText='Start typing to suggest an Ungulate'
-        />
-      </Grid>
-    </Grid> */}
-    <Grid container spacing={24}>
       <Grid item xs={12}>
         <Field
           name='invertebrates'
@@ -115,8 +87,6 @@ export default props => (
           helperText='Select types of invertebrates'
         />
       </Grid>
-    </Grid>
-    <Grid container spacing={24}>
       <Grid item xs={6}>
         <CheckboxGroup
           name='insects'
@@ -124,13 +94,20 @@ export default props => (
           items={insects}
         />
       </Grid>
-    </Grid>
-    <Grid container spacing={24}>
       <Grid item xs={6}>
         <RadioGroup
           name='birds'
           label='Birds'
           items={birds}
+        />
+      </Grid>
+      <Grid item xs={12}>
+        <Field
+          name='research_document'
+          label='Research document'
+          host='https://uploads.beamaustralia.local'
+          component={Upload}
+          helperText='Upload a research document'
         />
       </Grid>
     </Grid>

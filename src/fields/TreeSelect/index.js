@@ -25,15 +25,22 @@ class TreeSelect extends React.Component {
     this.props.form.setFieldTouched(this.props.field.name)
   }
 
+  getClassName = () => {
+    const { form: { errors, touched }, field: { name }, className } = this.props
+    return classNames('beam tree-select-field', className, {
+      error: Boolean(errors[name] && touched[name])
+    })
+  }
+
   render() {
     const { items } = this.state
-    const { helperText, className, label, field, ...rest } = this.props
+    const { helperText, label, field, ...rest } = this.props
     return (
       <FormControl helperText={helperText} name={field.name}>
         <FormLabel component='legend'>{label}</FormLabel>
         <AntTreeSelect
           {...field}
-          className={classNames('beam tree-select-field', className)}
+          className={this.getClassName()}
           treeData={items}
           onChange={this.onChange}
           onBlur={this.onBlur}

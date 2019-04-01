@@ -28,3 +28,6 @@
 .beam.tree-select-field:hover {
   border-color: #202020;
 }
+.error.beam.tree-select-field {
+  border: 1px solid red;
+}
