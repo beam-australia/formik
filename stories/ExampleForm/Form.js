@@ -99,6 +99,7 @@ export default props => (
           name='birds'
           label='Birds'
           items={birds}
+          row={20}
         />
       </Grid>
       <Grid item xs={12}>

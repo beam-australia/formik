@@ -1,6 +1,5 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import classNames from 'classnames'
 import { connect, FieldArray } from 'formik'
 import { withStyles } from '@material-ui/core/styles'
 import FormLabel from '@material-ui/core/FormLabel'
@@ -28,20 +27,17 @@ class CheckboxGroup extends React.Component {
       nameKey,
       valueKey,
       label,
-      required,
-      name,
-      row
+      name
     } = this.props
     return (
-      <FormControl component='fieldset' name={name} required={required} className={classes.root}>
+      <FormControl component='fieldset' name={name} className={classes.root}>
         <FormLabel component='legend'>{label}</FormLabel>
         <FieldArray
           name={name}
           render={helpers => (
-            <FormGroup row={row}>
+            <FormGroup className={classes.group}>
               {items.map(item => (
                 <Checkbox
-                  className={classNames({ [classes.checkbox]: row })}
                   key={item[valueKey]}
                   name={name}
                   label={item[nameKey]}
@@ -68,16 +64,13 @@ CheckboxGroup.propTypes = {
   nameKey: PropTypes.string,
   valueKey: PropTypes.string,
   label: PropTypes.string,
-  name: PropTypes.string,
-  row: PropTypes.bool,
-  required: PropTypes.bool
+  name: PropTypes.string
 }
 
 CheckboxGroup.defaultProps = {
   items: [],
   nameKey: 'name',
-  valueKey: 'slug',
-  row: true
+  valueKey: 'slug'
 }
 
 export default withStyles(styles)(
