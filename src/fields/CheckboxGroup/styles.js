@@ -1,6 +1,6 @@
 export default theme => ({
-  row: {
-    width: '25%',
+  checkbox: {
+    flex: 1,
     margin: 0
   }
 })
