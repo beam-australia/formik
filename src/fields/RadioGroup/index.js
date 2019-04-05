@@ -22,9 +22,9 @@ class RadioGroup extends React.Component {
     } = this.props
 
     return (
-      <FormControl component='fieldset'name={name}>
+      <FormControl component='fieldset'name={name} className={classes.root}>
         <FormLabel component='legend'>{label}</FormLabel>
-        <Field name={name} row={row} component={MuiRadioGroup}>
+        <Field name={name} row={row} component={MuiRadioGroup} className={classes.group}>
           {items.map(item => (
             <Radio
               className={classNames({ [classes.row]: row })}

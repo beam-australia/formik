@@ -32,9 +32,8 @@ class CheckboxGroup extends React.Component {
       name,
       row
     } = this.props
-
     return (
-      <FormControl component='fieldset' name={name} required={required}>
+      <FormControl component='fieldset' name={name} required={required} className={classes.root}>
         <FormLabel component='legend'>{label}</FormLabel>
         <FieldArray
           name={name}
@@ -42,7 +41,7 @@ class CheckboxGroup extends React.Component {
             <FormGroup row={row}>
               {items.map(item => (
                 <Checkbox
-                  className={classNames({ [classes.row]: row })}
+                  className={classNames({ [classes.checkbox]: row })}
                   key={item[valueKey]}
                   name={name}
                   label={item[nameKey]}
