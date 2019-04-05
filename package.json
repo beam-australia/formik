@@ -1,6 +1,6 @@
 {
   "name": "@beam-australia/formik",
-  "version": "1.1.1",
+  "version": "1.2.0",
   "author": "andrewmclagan",
   "license": "MIT",
   "publishConfig": {
@@ -31,13 +31,13 @@
     "react-dom": "^16.0.0"
   },
   "devDependencies": {
-    "@beam-australia/material-tus": "^0.5.7",
     "@babel/core": "^7.4.0",
     "@babel/plugin-external-helpers": "^7.2.0",
     "@babel/plugin-proposal-class-properties": "^7.3.4",
     "@babel/preset-env": "^7.3.4",
     "@babel/preset-react": "^7.0.0",
     "@babel/preset-stage-0": "^7.0.0",
+    "@beam-australia/material-tus": "^0.5.7",
     "@material-ui/core": "^3.9.2",
     "@material-ui/icons": "^3.0.2",
     "@storybook/addon-actions": "^5.0.0",
