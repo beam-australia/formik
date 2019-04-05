@@ -37,6 +37,7 @@ export default () => (
         ungulates: '',
         insects: ['weevils', 'wasps'],
         invertebrates: ['cnidarians'],
+        research_document: null,
         expert: true,
         phd: false,
         birds: 'penguins'

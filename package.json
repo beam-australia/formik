@@ -1,6 +1,6 @@
 {
   "name": "@beam-australia/formik",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "author": "andrewmclagan",
   "license": "MIT",
   "publishConfig": {
@@ -21,11 +21,9 @@
     "postversion": "git push --tags && git push"
   },
   "peerDependencies": {
+    "@beam-australia/material-tus": "^0.5.7",
     "@material-ui/core": "^3.0.0",
     "@material-ui/icons": "^3.0.0",
-    "@uppy/core": "^0.30.3",
-    "@uppy/react": "^0.30.3",
-    "@uppy/tus": "^0.30.3",
     "antd": "^3.15.2",
     "formik": "^1.5.0",
     "prop-types": "^15.0.0",
@@ -33,6 +31,7 @@
     "react-dom": "^16.0.0"
   },
   "devDependencies": {
+    "@beam-australia/material-tus": "^0.5.7",
     "@babel/core": "^7.4.0",
     "@babel/plugin-external-helpers": "^7.2.0",
     "@babel/plugin-proposal-class-properties": "^7.3.4",
@@ -46,9 +45,6 @@
     "@storybook/react": "^5.0.5",
     "@storybook/storybook-deployer": "^2.8.1",
     "@svgr/rollup": "^2.4.1",
-    "@uppy/core": "^0.30.3",
-    "@uppy/react": "^0.30.3",
-    "@uppy/tus": "^0.30.3",
     "antd": "^3.15.2",
     "babel-eslint": "^8.2.5",
     "babel-loader": "^8.0.5",
@@ -85,7 +81,6 @@
   ],
   "dependencies": {
     "deep-rename-keys": "^0.2.1",
-    "formik-material-ui": "^0.0.16",
-    "mui-downshift": "^1.4.1"
+    "formik-material-ui": "^0.0.16"
   }
 }

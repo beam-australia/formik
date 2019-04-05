@@ -1,5 +1,4 @@
 import Password from './fields/Password'
-// import Autocomplete from './fields/Autocomplete'
 import Select from './fields/Select'
 import TreeSelect from './fields/TreeSelect'
 import TextField from './fields/TextField'
@@ -20,7 +19,6 @@ export {
   Password,
   Select,
   TreeSelect,
-  // Autocomplete,
   TextField,
   RadioGroup,
   Switch,

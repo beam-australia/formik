@@ -105,9 +105,8 @@ export default props => (
         <Field
           name='research_document'
           label='Research document'
-          host='https://uploads.beamaustralia.local'
+          endpoint='https://uploads.beamaustralia.local'
           component={Upload}
-          helperText='Upload a research document'
         />
       </Grid>
     </Grid>
