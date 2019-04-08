@@ -1,18 +1,14 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import { connect } from 'formik'
-import get from 'lodash/get'
 import MuiFormControl from '@material-ui/core/FormControl'
 import FormHelperText from '@material-ui/core/FormHelperText'
+import getFieldError from '../../lib/getFieldError'
 
 const FormControl = ({ children, name, formik, helperText, ...props }) => {
-  const { touched, errors } = formik
-
-  const fieldError = get(errors, name)
-  const showError = get(touched, name) && !!fieldError
-
-  const text = showError ? fieldError : helperText
-
+  const error = getFieldError(formik, name)
+  const showError = error.length > 0
+  const text = showError ? error : helperText
   return (
     <MuiFormControl error={showError} {...props}>
       {children}
@@ -31,7 +27,7 @@ FormControl.propTypes = {
 FormControl.defaultProps = {
   fullWidth: true,
   margin: 'dense',
-  variant: 'outlined'
+  variant: 'standard'
 }
 
 export default connect(FormControl)

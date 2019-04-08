@@ -1,65 +1,43 @@
 import React from 'react'
-import ReactDOM from 'react-dom'
 import PropTypes from 'prop-types'
-import { Select as MuiSelect } from 'formik-material-ui'
-import InputLabel from '@material-ui/core/InputLabel'
+import classNames from 'classnames'
+import { withStyles } from '@material-ui/core/styles'
+import FormLabel from '@material-ui/core/FormLabel'
 import FormControl from '../../components/FormControl'
-import InputVariant from './InputVariant'
+import getFieldError from '../../lib/getFieldError'
+import styles from './styles'
 
-class Select extends React.Component {
-  state = {
-    width: 0
-  }
-
-  componentDidMount() {
-    this.setState({
-      width: ReactDOM.findDOMNode(this.labelRef).offsetWidth
-    })
-  }
-
-  render() {
-    const { items, valueKey, nameKey, label, helperText, ...rest } = this.props
-    const name = this.props.field.name
-    return (
-      <FormControl helperText={helperText} name={name}>
-        <InputLabel
-          variant={rest.variant}
-          htmlFor={name}
-          ref={ref => { this.labelRef = ref }}
-        >{label}</InputLabel>
-        <MuiSelect
-          native
-          {...rest}
-          input={
-            <InputVariant
-              name={name}
-              width={this.state.width}
-              variant={rest.variant}
-            />
-          }
-        >
-          {items.map(item => (
-            <option
-              key={item[valueKey]}
-              value={item[valueKey]}
-            >{item[nameKey]}</option>
-          ))}
-        </MuiSelect>
-      </FormControl>
-    )
-  }
+const Select = ({ classes, items, valueKey, nameKey, label, helperText, field, form }) => {
+  const hasError = getFieldError(form, field.name).length > 0
+  return (
+    <FormControl helperText={helperText} name={field.name}>
+      <FormLabel htmlFor={field.name}>{label}</FormLabel>
+      <select
+        {...field}
+        id={field.name}
+        className={classNames(classes.select, { [classes.error]: hasError })}
+      >
+        {items.map(item => (
+          <option
+            key={item[valueKey]}
+            value={item[valueKey]}
+          >{item[nameKey]}</option>
+        ))}
+      </select>
+    </FormControl>
+  )
 }
 
 Select.propTypes = {
+  classes: PropTypes.object,
   valueKey: PropTypes.string,
   nameKey: PropTypes.string,
   helperText: PropTypes.string,
   items: PropTypes.array.isRequired,
   label: PropTypes.string,
   id: PropTypes.string,
-  field: PropTypes.shape({
-    name: PropTypes.string
-  })
+  form: PropTypes.object,
+  field: PropTypes.object
 }
 
 Select.defaultProps = {
@@ -70,4 +48,4 @@ Select.defaultProps = {
   id: ''
 }
 
-export default Select
+export default withStyles(styles)(Select)

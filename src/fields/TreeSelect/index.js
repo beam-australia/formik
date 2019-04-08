@@ -18,10 +18,6 @@ class TreeSelect extends React.Component {
   }
 
   onChange = (value, label, extra) => {
-    console.log('value', value)
-    console.log('label', label)
-    console.log('extra', extra)
-    extra.triggerNode.expand()
     this.props.form.setFieldValue(this.props.field.name, value)
   }
 
