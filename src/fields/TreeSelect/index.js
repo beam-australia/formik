@@ -17,7 +17,11 @@ class TreeSelect extends React.Component {
     this.setState({ items: mapTree(this.props.items) })
   }
 
-  onChange = (value) => {
+  onChange = (value, label, extra) => {
+    console.log('value', value)
+    console.log('label', label)
+    console.log('extra', extra)
+    extra.triggerNode.expand()
     this.props.form.setFieldValue(this.props.field.name, value)
   }
 

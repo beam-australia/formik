@@ -1,11 +1,13 @@
 import React from 'react'
 import PropTypes from 'prop-types'
+import classNames from 'classnames'
 import { connect, FieldArray } from 'formik'
 import { withStyles } from '@material-ui/core/styles'
 import FormLabel from '@material-ui/core/FormLabel'
 import FormGroup from '@material-ui/core/FormGroup'
 import FormControl from '../../components/FormControl'
 import Checkbox from '../Checkbox'
+import gridTemplateColumns from '../../lib/gridTemplateColumns'
 import styles from './styles'
 
 class CheckboxGroup extends React.Component {
@@ -27,6 +29,7 @@ class CheckboxGroup extends React.Component {
       nameKey,
       valueKey,
       label,
+      grid,
       name
     } = this.props
     return (
@@ -35,7 +38,10 @@ class CheckboxGroup extends React.Component {
         <FieldArray
           name={name}
           render={helpers => (
-            <FormGroup className={classes.group}>
+            <FormGroup
+              className={classNames({ [classes.grid]: grid })}
+              style={gridTemplateColumns(grid)}
+            >
               {items.map(item => (
                 <Checkbox
                   key={item[valueKey]}
@@ -64,13 +70,18 @@ CheckboxGroup.propTypes = {
   nameKey: PropTypes.string,
   valueKey: PropTypes.string,
   label: PropTypes.string,
-  name: PropTypes.string
+  name: PropTypes.string,
+  grid: PropTypes.oneOf([
+    PropTypes.bool,
+    PropTypes.string
+  ])
 }
 
 CheckboxGroup.defaultProps = {
   items: [],
   nameKey: 'name',
-  valueKey: 'slug'
+  valueKey: 'slug',
+  grid: 110
 }
 
 export default withStyles(styles)(

@@ -92,6 +92,7 @@ export default props => (
           name='insects'
           label='Insects'
           items={insects}
+          grid={160}
         />
       </Grid>
       <Grid item xs={6}>
@@ -99,7 +100,7 @@ export default props => (
           name='birds'
           label='Birds'
           items={birds}
-          row={20}
+          grid={130}
         />
       </Grid>
       <Grid item xs={12}>
