@@ -9,7 +9,7 @@ import { withStyles } from '@material-ui/core/styles'
 import styles from './styles'
 
 export const FormResponse = ({ classes, formik: { status } }) => {
-  if (status && status.message && status.message.length < 1) {
+  if (!status || !status.message) {
     return null
   }
   const isError = status.success === false

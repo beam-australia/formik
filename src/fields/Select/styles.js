@@ -5,6 +5,6 @@ export default theme => ({
     border: '1px solid #c0c0c0',
     borderRadius: '4px',
     backgroundColor: 'transparent',
-    marginTop: '7px'
+    marginTop: '12px'
   }
 })
