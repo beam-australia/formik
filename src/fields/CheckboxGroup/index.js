@@ -73,7 +73,7 @@ CheckboxGroup.propTypes = {
   name: PropTypes.string,
   grid: PropTypes.oneOfType([
     PropTypes.bool,
-    PropTypes.string
+    PropTypes.number
   ])
 }
 

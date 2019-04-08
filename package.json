@@ -64,7 +64,6 @@
     "jest-enzyme": "^7.0.2",
     "react": "^16.8.5",
     "react-dom": "^16.8.5",
-    "react-pose": "^4.0.7",
     "react-scripts": "^1.1.4",
     "react-test-renderer": "^16.8.5",
     "rollup": "^1.7.3",
