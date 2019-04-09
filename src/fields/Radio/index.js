@@ -8,7 +8,7 @@ const Radio = ({ children, formik, ...props }) => {
   const { isSubmitting } = formik
   return (
     <FormControlLabel
-      control={<MuiRadio disabled={isSubmitting} />}
+      control={<MuiRadio disabled={isSubmitting} color='primary' />}
       disabled={isSubmitting}
       {...props}
     />

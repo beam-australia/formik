@@ -14,6 +14,7 @@ const Checkbox = ({ label = '', className, ...props }) => {
       control={
         <MuiCheckbox
           {...fieldToCheckbox(props)}
+          color='primary'
           checked={checked}
         />
       }
