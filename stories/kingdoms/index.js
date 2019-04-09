@@ -122,3 +122,53 @@ export const invertebrates = [
     ]
   },
 ]
+
+export const salary = [
+  {
+    id: 1,
+    slug: 'anually',
+    name: 'Anually',
+    children: [
+      { slug: -1, name: 'Please select' },
+      { slug: 70000, name: '$70,000' },
+      { slug: 80000, name: '$80,000' },
+      { slug: 90000, name: '$90,000' },
+      { slug: 100000, name: '$100,000' },
+      { slug: 110000, name: '$110,000' },
+      { slug: 120000, name: '$120,000' },
+      { slug: 130000, name: '$130,000' },
+      { slug: 140000, name: '$140,000' },
+      { slug: 150000, name: '$150,000' },
+      { slug: 170000, name: '$170,000' },
+      { slug: 200000, name: '$200,000' },
+      { slug: 250000, name: '$250,000' },
+      { slug: 300000, name: '$300,000' },
+      { slug: 350000, name: '$350,000+' }
+    ]
+  },
+  {
+    id: 1,
+    slug: 'hourly',
+    name: 'Hourly',
+    children: [
+      { slug: -1, name: 'Please select' },
+      { slug: 50, name: '$50' },
+      { slug: 60, name: '$60' },
+      { slug: 70, name: '$70' },
+      { slug: 80, name: '$80' },
+      { slug: 90, name: '$90' },
+      { slug: 100, name: '$100' },
+      { slug: 110, name: '$110' },
+      { slug: 120, name: '$120' },
+      { slug: 130, name: '$130' },
+      { slug: 140, name: '$140' },
+      { slug: 150, name: '$150' },
+      { slug: 160, name: '$160' },
+      { slug: 170, name: '$170' },
+      { slug: 180, name: '$180' },
+      { slug: 190, name: '$190' },
+      { slug: 200, name: '$200' },
+      { slug: 250, name: '$250+' }
+    ]
+  }
+]

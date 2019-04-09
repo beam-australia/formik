@@ -9,13 +9,15 @@ import {
   insects,
   fungi,
   birds,
-  invertebrates
+  invertebrates,
+  salary
 } from 'stories/kingdoms'
 import {
   TextField,
   Password,
   Select,
   TreeSelect,
+  ConditionalSelect,
   Switch,
   Checkbox,
   CheckboxGroup,
@@ -85,6 +87,17 @@ export default props => (
           component={TreeSelect}
           items={invertebrates}
           helperText='Select types of invertebrates'
+        />
+      </Grid>
+      <Grid item xs={12}>
+        <ConditionalSelect
+          items={salary}
+          primaryPosition='right'
+          primaryFieldName='salary_type'
+          secondaryFieldName='salary_amount'
+          label='Minimum salary expectation'
+          component={ConditionalSelect}
+          helperText='Add a salary to increase your chance of being found by employers'
         />
       </Grid>
       <Grid item xs={6}>

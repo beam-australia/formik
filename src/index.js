@@ -1,6 +1,7 @@
 import Password from './fields/Password'
 import Select from './fields/Select'
 import TreeSelect from './fields/TreeSelect'
+import ConditionalSelect from './fields/ConditionalSelect'
 import TextField from './fields/TextField'
 import RadioGroup from './fields/RadioGroup'
 import Switch from './fields/Switch'
@@ -19,6 +20,7 @@ export {
   Password,
   Select,
   TreeSelect,
+  ConditionalSelect,
   TextField,
   RadioGroup,
   Switch,

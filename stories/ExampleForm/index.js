@@ -38,6 +38,8 @@ export default () => (
         insects: ['weevils', 'wasps'],
         invertebrates: ['cnidarians'],
         research_document: null,
+        salary_amount: '',
+        salary_type: 'hourly',
         expert: true,
         phd: false,
         birds: 'penguins'
