@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom'
 import { Formik, Form } from 'formik'
 import SubmitButton from './'
 
-it('renders without crashing', () => {
+it('<SubmitButton /> renders without crashing', () => {
   const div = document.createElement('div')
   ReactDOM.render(
     <Formik>
