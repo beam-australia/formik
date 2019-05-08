@@ -9,8 +9,7 @@ const TextField = props => (
 
 TextField.propTypes = {
   variant: PropTypes.string,
-  fullWidth: PropTypes.bool,
-  margin: PropTypes.string
+  fullWidth: PropTypes.bool
 }
 
 TextField.defaultProps = {

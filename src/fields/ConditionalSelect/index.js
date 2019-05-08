@@ -1,63 +1,51 @@
 import React from 'react'
-import PropTypes from 'prop-types'
 import find from 'lodash/find'
-import { Field, connect } from 'formik'
 import { withStyles } from '@material-ui/core/styles'
 import FormLabel from '@material-ui/core/FormLabel'
+import FormHelperText from '@material-ui/core/FormHelperText'
 import Grid from '@material-ui/core/Grid'
-import FormControl from '../../components/FormControl'
-import Select from '../Select'
+import FormControl from 'components/FormControl'
+import Select from 'components/Select'
+import { fieldProps } from 'lib/propTypes'
+import { Field, connect, getIn } from 'formik'
 import styles from './styles'
-
 class ConditionalSelect extends React.Component {
   render() {
-    const { classes, items, secondaryFieldName, primaryFieldName, field, formik, label, helperText } = this.props
-    // const secondayItems = form.values
-    const primaryValue = formik.values[primaryFieldName]
-    const secondaryItems = find(items, { slug: primaryValue }).children
+    const { label, helperText, conditional, dependant, items, formik } = this.props
+    const slug = getIn(formik.values, conditional)
+    const children = find(items, { slug }).children
     return (
-      <FormControl component='fieldset' helperText={helperText} name={primaryFieldName} className={classes.root}>
-        <FormLabel htmlFor={primaryFieldName}>{label}</FormLabel>
+      <div>
+        <FormLabel>{label}</FormLabel>
         <Grid container spacing={24}>
-          <Grid item xs={6}>
-            <Field
-              name={secondaryFieldName}
-              component={Select}
-              items={secondaryItems}
-            />
+          <Grid item sm={6}>
+            <FormControl name={conditional}>
+              <Field
+                name={conditional}
+                items={items}
+                component={Select}
+                className='mui-conditional'
+              />
+            </FormControl>
+            {helperText && <FormHelperText>{helperText}</FormHelperText>}
           </Grid>
-          <Grid item xs={6}>
-            <Field
-              name={primaryFieldName}
-              component={Select}
-              items={items}
-            />
+          <Grid item sm={6}>
+            <FormControl name={dependant}>
+              <Field
+                name={dependant}
+                items={children}
+                component={Select}
+                className='mui-dependant'
+              />
+            </FormControl>
           </Grid>
         </Grid>
-      </FormControl>
+      </div>
     )
   }
 }
 
-ConditionalSelect.propTypes = {
-  classes: PropTypes.object,
-  valueKey: PropTypes.string,
-  nameKey: PropTypes.string,
-  helperText: PropTypes.string,
-  items: PropTypes.array.isRequired,
-  label: PropTypes.string,
-  id: PropTypes.string,
-  form: PropTypes.object,
-  field: PropTypes.object
-}
-
-ConditionalSelect.defaultProps = {
-  variant: 'standard',
-  valueKey: 'slug',
-  nameKey: 'name',
-  items: [],
-  id: ''
-}
+ConditionalSelect.propTypes = fieldProps
 
 export default withStyles(styles)(
   connect(ConditionalSelect)

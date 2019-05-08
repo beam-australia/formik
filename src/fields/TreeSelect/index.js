@@ -1,11 +1,11 @@
 import React from 'react'
 import classNames from 'classnames'
 import PropTypes from 'prop-types'
-import FormControl from '../../components/FormControl'
+import FormControl from 'components/FormControl'
 import FormLabel from '@material-ui/core/FormLabel'
 import AntTreeSelect from 'antd/lib/tree-select'
 import 'antd/lib/tree-select/style/css.js'
-import mapTree from '../../lib/mapTree'
+import mapTree from 'lib/mapTree'
 import './index.css'
 
 class TreeSelect extends React.Component {

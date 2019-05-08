@@ -1,4 +1,4 @@
-import React from 'react';
+import React from 'react'
 
 export default props => (
   <div style={{ margin: '1rem 0' }}>
@@ -7,7 +7,7 @@ export default props => (
         background: '#f6f8fa',
         fontSize: '14px',
         padding: '10px',
-        fontFamily: 'monospace',
+        fontFamily: 'monospace'
       }}
     >
       {JSON.stringify(props, null, 2)}

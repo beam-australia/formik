@@ -1,9 +1,11 @@
 const path = require("path");
-const pkg = require("../package.json");
 
 module.exports = ({ config }) => {
-  // Allow relative path imports
-  config.resolve.alias[pkg.name] = path.resolve('./src');
-  config.resolve.alias['stories'] = path.resolve('./stories');
+  // Relative path imports
+  config.resolve.modules = [
+    ...(config.resolve.modules || []),
+    path.resolve('./src'),
+  ];
+  config.resolve.alias['testing'] = path.resolve('testing');
   return config;
 };

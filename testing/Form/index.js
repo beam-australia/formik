@@ -1,0 +1,48 @@
+import React from 'react'
+import PropTypes from 'prop-types'
+import { Formik, Form } from 'formik'
+import Grid from '@material-ui/core/Grid'
+import SubmitButton from 'components/SubmitButton'
+import onFormSubmit from 'lib/onFormSubmit'
+import Json from 'testing/Json'
+import App from 'testing/App'
+
+const formAction = (values) => new Promise((resolve) => {
+  setTimeout(() => {
+    console.log('Values: ', values)
+    resolve(values)
+  }, 2000)
+})
+
+const TestForm = ({ schema = null, initialValues = null, children }) => (
+  <App>
+    <Formik
+      onSubmit={onFormSubmit(formAction)}
+      validationSchema={schema}
+      initialValues={initialValues}
+      render={props => (
+        <Form>
+          <Grid container spacing={24}>
+            <Grid item xs={12}>
+              {children}
+            </Grid>
+            <Grid item xs={12}>
+              <SubmitButton>Submit</SubmitButton>
+            </Grid>
+            <Grid item xs={12}>
+              <Json {...props} />
+            </Grid>
+          </Grid>
+        </Form>
+      )}
+    />
+  </App>
+)
+
+TestForm.propTypes = {
+  schema: PropTypes.object,
+  initialValues: PropTypes.object,
+  children: PropTypes.node
+}
+
+export default TestForm

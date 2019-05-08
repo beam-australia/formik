@@ -1,6 +1,7 @@
+import { getIn } from 'formik'
+
 export default function getFieldError(formik, name = '') {
-  const { touched, errors } = formik
-  const fieldError = errors[name] || false
-  const showError = touched[name] && fieldError !== false
-  return showError ? fieldError : ''
+  const error = getIn(formik, `errors.${name}`, false)
+  const touched = getIn(formik, `touched.${name}`, false)
+  return error && touched ? error : ''
 }

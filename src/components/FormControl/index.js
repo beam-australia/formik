@@ -11,7 +11,9 @@ const FormControl = ({ children, name, formik, helperText, ...props }) => {
   const text = showError ? error : helperText
   return (
     <MuiFormControl error={showError} {...props}>
-      {children}
+      {React.cloneElement(children, {
+        className: showError ? 'error' : ''
+      })}
       {text && <FormHelperText>{text}</FormHelperText>}
     </MuiFormControl>
   )

@@ -92,12 +92,9 @@ export default props => (
       <Grid item xs={12}>
         <ConditionalSelect
           items={salary}
-          primaryPosition='right'
-          primaryFieldName='salary_type'
-          secondaryFieldName='salary_amount'
           label='Minimum salary expectation'
-          component={ConditionalSelect}
-          helperText='Add a salary to increase your chance of being found by employers'
+          conditional='salary_type'
+          dependant='salary_value'
         />
       </Grid>
       <Grid item xs={6}>

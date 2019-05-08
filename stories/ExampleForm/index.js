@@ -10,13 +10,6 @@ const formApiAction = (values, actions) => new Promise((resolve, reject) => {
   setTimeout(() => {
     action('submit')(values)
     resolve(values)
-    // reject(new Error({
-    //   errors: {
-    //     first_name: [
-    //       'hello'
-    //     ]
-    //   }
-    // })
   }, 2000)
 })
 
@@ -38,8 +31,8 @@ export default () => (
         insects: ['weevils', 'wasps'],
         invertebrates: ['cnidarians'],
         research_document: null,
+        salary_type: 'anually',
         salary_amount: '',
-        salary_type: 'hourly',
         expert: true,
         phd: false,
         birds: 'penguins'

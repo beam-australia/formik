@@ -58,8 +58,4 @@ Upload.propTypes = {
   ...tusPropTypes
 }
 
-Upload.defaultProps = {
-
-}
-
 export default withStyles(styles)(Upload)

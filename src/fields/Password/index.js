@@ -9,8 +9,7 @@ const Password = props => (
 
 Password.propTypes = {
   variant: PropTypes.string,
-  fullWidth: PropTypes.bool,
-  margin: PropTypes.string
+  fullWidth: PropTypes.bool
 }
 
 Password.defaultProps = {

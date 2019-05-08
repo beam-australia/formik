@@ -20,7 +20,6 @@ class CheckboxGroup extends React.Component {
       helpers.remove(index)
     }
   }
-
   render() {
     const {
       formik,

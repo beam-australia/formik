@@ -1,13 +1,13 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
-import TestForm from 'testing/Form'
+import Form from 'testing/Form'
 import { salary } from 'testing/mocks'
 import ConditionalSelect from './'
 
 it('<ConditionalSelect /> renders without crashing', () => {
   const div = document.createElement('div')
   ReactDOM.render(
-    <TestForm initialValues={{ salary_type: 'anually', salary_value: '' }}>
+    <Form initialValues={{ salary_type: 'anually', salary_value: '' }}>
       <ConditionalSelect
         items={salary}
         label='Minimum salary expectation'
@@ -15,5 +15,5 @@ it('<ConditionalSelect /> renders without crashing', () => {
         conditional='salary_type'
         dependant='salary_value'
       />
-    </TestForm>, div)
+    </Form>, div)
 })

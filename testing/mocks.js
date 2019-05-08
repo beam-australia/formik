@@ -1,24 +1,4 @@
-export const insects = [
-  { id: 23, slug: 'crickets', name: 'Crickets' },
-  { id: 7, slug: 'weevils', name: 'Weevils' },
-  { id: 4, slug: 'moths', name: 'Moths' },
-  { id: 21, slug: 'ants', name: 'Ants' },
-  { id: 25, slug: 'bees', name: 'Bees' },
-  { id: 13, slug: 'wasps', name: 'Wasps' }
-]
-
-export const mammals = [
-  { slug: '', name: '' },
-  { id: 23, slug: 'whales', name: 'Whales' },
-  { id: 7, slug: 'skunks', name: 'Skunks' },
-  { id: 4, slug: 'anteater', name: 'Anteater' },
-  { id: 21, slug: 'apes', name: 'Apes' },
-  { id: 25, slug: 'deer', name: 'Deer' },
-  { id: 13, slug: 'lemurs', name: 'Lemurs' }
-]
-
 export const fungi = [
-  { slug: '', name: '' },
   { id: 23, slug: 'basidiomycota', name: 'Basidiomycota' },
   { id: 7, slug: 'ascomycota', name: 'Ascomycota' },
   { id: 4, slug: 'neocallimastigomycota', name: 'Neocallimastigomycota' },

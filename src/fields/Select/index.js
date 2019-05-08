@@ -1,51 +1,24 @@
 import React from 'react'
-import PropTypes from 'prop-types'
-import classNames from 'classnames'
-import { withStyles } from '@material-ui/core/styles'
 import FormLabel from '@material-ui/core/FormLabel'
-import FormControl from '../../components/FormControl'
-import getFieldError from '../../lib/getFieldError'
-import styles from './styles'
+import { fieldProps } from 'lib/propTypes'
+import FormControl from 'components/FormControl'
+import BaseSelect from 'components/Select'
+import getFieldError from 'lib/getFieldError'
 
-const Select = ({ classes, items, valueKey, nameKey, label, helperText, field, form }) => {
+const Select = ({ items, label, helperText, field, form }) => {
   const hasError = getFieldError(form, field.name).length > 0
   return (
     <FormControl helperText={helperText} name={field.name}>
-      <FormLabel htmlFor={field.name}>{label}</FormLabel>
-      <select
+      {label && <FormLabel>{label}</FormLabel>}
+      <BaseSelect
         {...field}
-        id={field.name}
-        className={classNames(classes.select, { [classes.error]: hasError })}
-      >
-        {items.map(item => (
-          <option
-            key={item[valueKey]}
-            value={item[valueKey]}
-          >{item[nameKey]}</option>
-        ))}
-      </select>
+        error={hasError}
+        items={items}
+      />
     </FormControl>
   )
 }
 
-Select.propTypes = {
-  classes: PropTypes.object,
-  valueKey: PropTypes.string,
-  nameKey: PropTypes.string,
-  helperText: PropTypes.string,
-  items: PropTypes.array.isRequired,
-  label: PropTypes.string,
-  id: PropTypes.string,
-  form: PropTypes.object,
-  field: PropTypes.object
-}
+Select.propTypes = fieldProps
 
-Select.defaultProps = {
-  variant: 'standard',
-  valueKey: 'slug',
-  nameKey: 'name',
-  items: [],
-  id: ''
-}
-
-export default withStyles(styles)(Select)
+export default Select
