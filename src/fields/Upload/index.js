@@ -12,7 +12,7 @@ class Upload extends React.Component {
     this.props.form.setFieldValue(this.props.field.name, mapUpload(state.upload))
   }
 
-  onError = (state) => {
+  onError = () => {
     this.props.form.setFieldTouched(this.props.field.name)
     this.props.form.setFieldError(this.props.field.name, '')
   }
@@ -32,11 +32,11 @@ class Upload extends React.Component {
       buttonLabel,
       allowedFileTypes,
       maxFileSize,
-      field: { name }
+      field: { name },
+      form
     } = this.props
     return (
-      <FormControl name={name}>
-        <FormLabel>{label}</FormLabel>
+      <FormControl name={name} label={label}>
         <TusUpload
           className={classes.root}
           name={name}
@@ -48,6 +48,7 @@ class Upload extends React.Component {
           onSuccess={this.onSuccess}
           onError={this.onError}
           onReset={this.onReset}
+          disabled={form.isSubmitting}
         />
       </FormControl>
     )

@@ -1,32 +1,14 @@
 import React from 'react'
-import PropTypes from 'prop-types'
-import classNames from 'classnames'
-import { withStyles } from '@material-ui/core/styles'
-import { fieldProps } from 'lib/propTypes'
-import styles from './styles'
+import TextField from '@material-ui/core/TextField'
+import MapOptions from 'components/MapOptions'
 
-const Select = ({ classes, className, items, error, field }) => (
-  <select
-    {...field}
-    className={classNames(classes.root, className, { [classes.error]: error })}
+export default ({ options, ...props }) => (
+  <TextField
+    select
+    fullWidth
+    SelectProps={{ native: true }}
+    {...props}
   >
-    {items.map(item => (
-      <option
-        key={item.slug}
-        value={item.slug}
-      >{item.name}</option>
-    ))}
-  </select>
+    <MapOptions options={options} />
+  </TextField>
 )
-
-Select.propTypes = {
-  ...fieldProps,
-  error: PropTypes.bool
-}
-
-Select.defaultProps = {
-  items: [],
-  error: false
-}
-
-export default withStyles(styles)(Select)

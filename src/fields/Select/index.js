@@ -1,24 +1,22 @@
 import React from 'react'
-import FormLabel from '@material-ui/core/FormLabel'
-import { fieldProps } from 'lib/propTypes'
-import FormControl from 'components/FormControl'
-import BaseSelect from 'components/Select'
-import getFieldError from 'lib/getFieldError'
+import { TextField as BaseSelect } from 'formik-material-ui'
+import MapOptions from 'components/MapOptions'
 
-const Select = ({ items, label, helperText, field, form }) => {
-  const hasError = getFieldError(form, field.name).length > 0
-  return (
-    <FormControl helperText={helperText} name={field.name}>
-      {label && <FormLabel>{label}</FormLabel>}
-      <BaseSelect
-        {...field}
-        error={hasError}
-        items={items}
-      />
-    </FormControl>
-  )
+const Select = ({ options, emptyOption, ...props }) => (
+  <BaseSelect {...props}>
+    <MapOptions options={options} emptyOption={emptyOption} />
+  </BaseSelect>
+)
+
+Select.defaultProps = {
+  fullWidth: true,
+  margin: 'normal',
+  select: true,
+  type: 'text',
+  SelectProps: {
+    native: true,
+    displayEmpty: false
+  }
 }
-
-Select.propTypes = fieldProps
 
 export default Select
