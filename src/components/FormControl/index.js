@@ -1,35 +1,40 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import { connect } from 'formik'
+import { withStyles } from '@material-ui/core/styles'
 import MuiFormControl from '@material-ui/core/FormControl'
+import FormLabel from '@material-ui/core/FormLabel'
 import FormHelperText from '@material-ui/core/FormHelperText'
 import getFieldError from '../../lib/getFieldError'
+import styles from './styles'
 
-const FormControl = ({ children, name, formik, helperText, ...props }) => {
+const FormControl = ({ children, name, formik, helperText, label, classes, ...props }) => {
   const error = getFieldError(formik, name)
   const showError = error.length > 0
   const text = showError ? error : helperText
+  const disabled = formik.isSubmitting ? true : false
   return (
-    <MuiFormControl error={showError} {...props}>
-      {React.cloneElement(children, {
-        className: showError ? 'error' : ''
-      })}
+    <MuiFormControl error={showError} disabled={disabled} {...props} margin='none'>
+      {label && <FormLabel className={classes.label}>{label}</FormLabel>}
+      {React.Children.map(children, child =>
+        React.cloneElement(child, {
+          error: showError ? 'error' : ''
+        })
+      )}
       {text && <FormHelperText>{text}</FormHelperText>}
     </MuiFormControl>
   )
 }
 
 FormControl.propTypes = {
-  children: PropTypes.node.isRequired,
-  name: PropTypes.string.isRequired,
-  formik: PropTypes.object,
-  helperText: PropTypes.string
+
 }
 
 FormControl.defaultProps = {
   fullWidth: true,
-  margin: 'dense',
-  variant: 'standard'
+  margin: 'normal'
 }
 
-export default connect(FormControl)
+export default withStyles(styles)(
+  connect(FormControl)
+)

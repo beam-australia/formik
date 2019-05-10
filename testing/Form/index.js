@@ -1,11 +1,12 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import { Formik, Form } from 'formik'
-import Grid from '@material-ui/core/Grid'
+import { Grid, Paper, withStyles } from '@material-ui/core'
 import SubmitButton from 'components/SubmitButton'
 import onFormSubmit from 'lib/onFormSubmit'
 import Json from 'testing/Json'
 import App from 'testing/App'
+import styles from './styles'
 
 const formAction = (values) => new Promise((resolve) => {
   setTimeout(() => {
@@ -14,7 +15,7 @@ const formAction = (values) => new Promise((resolve) => {
   }, 2000)
 })
 
-const TestForm = ({ schema = null, initialValues = null, children }) => (
+const TestForm = ({ schema = null, initialValues = null, children, classes }) => (
   <App>
     <Formik
       onSubmit={onFormSubmit(formAction)}
@@ -24,7 +25,9 @@ const TestForm = ({ schema = null, initialValues = null, children }) => (
         <Form>
           <Grid container spacing={24}>
             <Grid item xs={12}>
-              {children}
+              <Paper className={classes.paper} elevation={0}>
+                {children}
+              </Paper>
             </Grid>
             <Grid item xs={12}>
               <SubmitButton>Submit</SubmitButton>
@@ -39,10 +42,4 @@ const TestForm = ({ schema = null, initialValues = null, children }) => (
   </App>
 )
 
-TestForm.propTypes = {
-  schema: PropTypes.object,
-  initialValues: PropTypes.object,
-  children: PropTypes.node
-}
-
-export default TestForm
+export default withStyles(styles)(TestForm)

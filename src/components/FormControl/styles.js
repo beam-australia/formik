@@ -1,5 +1,5 @@
 export default theme => ({
-  root: {
-    marginTop: 3
+  label: {
+    marginBottom: 12
   }
 })

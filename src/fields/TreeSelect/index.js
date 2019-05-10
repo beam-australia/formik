@@ -10,14 +10,14 @@ import './index.css'
 
 class TreeSelect extends React.Component {
   state = {
-    items: []
+    options: []
   }
 
   componentDidMount() {
-    this.setState({ items: mapTree(this.props.items) })
+    this.setState({ options: mapTree(this.props.options) })
   }
 
-  onChange = (value, label, extra) => {
+  onChange = (value) => {
     this.props.form.setFieldValue(this.props.field.name, value)
   }
 
@@ -33,15 +33,14 @@ class TreeSelect extends React.Component {
   }
 
   render() {
-    const { items } = this.state
+    const { options } = this.state
     const { helperText, label, field, ...rest } = this.props
     return (
-      <FormControl helperText={helperText} name={field.name}>
-        <FormLabel component='legend'>{label}</FormLabel>
+      <FormControl helperText={helperText} name={field.name} label={label}>
         <AntTreeSelect
           {...field}
           className={this.getClassName()}
-          treeData={items}
+          treeData={options}
           onChange={this.onChange}
           onBlur={this.onBlur}
           {...rest}
@@ -58,22 +57,11 @@ class TreeSelect extends React.Component {
 }
 
 TreeSelect.propTypes = {
-  helperText: PropTypes.string,
-  items: PropTypes.array.isRequired,
-  label: PropTypes.string,
-  className: PropTypes.string,
-  field: PropTypes.shape({
-    name: PropTypes.string
-  }),
-  form: PropTypes.shape({
-    setFieldValue: PropTypes.func,
-    setFieldTouched: PropTypes.func
-  })
+
 }
 
 TreeSelect.defaultProps = {
-  placeholder: 'Please select',
-  items: []
+  placeholder: 'Please select'
 }
 
 export default TreeSelect

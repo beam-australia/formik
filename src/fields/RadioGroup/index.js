@@ -1,66 +1,28 @@
 import React from 'react'
-import PropTypes from 'prop-types'
-import classNames from 'classnames'
-import { withStyles } from '@material-ui/core/styles'
-import { Field } from 'formik'
-import FormLabel from '@material-ui/core/FormLabel'
-import { RadioGroup as MuiRadioGroup } from 'formik-material-ui'
-import FormControl from '../../components/FormControl'
-import gridTemplateColumns from '../../lib/gridTemplateColumns'
-import Radio from '../Radio'
-import styles from './styles'
+import { RadioGroup as BaseRadioGroup } from 'formik-material-ui'
+import FormControl from 'components/FormControl'
+import FormControlLabel from '@material-ui/core/FormControlLabel'
+import Radio from '@material-ui/core/Radio'
+import gridTemplateColumns from 'lib/gridTemplateColumns'
 
-class RadioGroup extends React.Component {
-  render() {
-    const {
-      items,
-      valueKey,
-      nameKey,
-      name,
-      label,
-      classes,
-      grid
-    } = this.props
-    return (
-      <FormControl component='fieldset' name={name} className={classes.root}>
-        <FormLabel component='legend'>{label}</FormLabel>
-        <Field
-          name={name}
-          component={MuiRadioGroup}
-          className={classNames({ [classes.grid]: grid })}
-          style={gridTemplateColumns(grid)}
-        >
-          {items.map(item => (
-            <Radio
-              key={item[valueKey]}
-              value={item[valueKey]}
-              label={item[nameKey]}
-            />
-          ))}
-        </Field>
-      </FormControl>
-    )
-  }
-}
-
-RadioGroup.propTypes = {
-  classes: PropTypes.object,
-  items: PropTypes.array,
-  nameKey: PropTypes.string,
-  valueKey: PropTypes.string,
-  label: PropTypes.string,
-  name: PropTypes.string,
-  grid: PropTypes.oneOfType([
-    PropTypes.bool,
-    PropTypes.number
-  ])
-}
+const RadioGroup = ({ options, label, helperText, grid, ...props }) => (
+  <FormControl name={props.field.name} helperText={helperText} label={label}>
+    <BaseRadioGroup {...props} style={gridTemplateColumns(grid)}>
+      {options.map(option => (
+        <FormControlLabel
+          key={option.value}
+          value={option.value}
+          control={<Radio disabled={Boolean(option.disabled)} color='primary' />}
+          label={option.label}
+          disabled={Boolean(props.form.isSubmitting || option.disabled)}
+        />
+      ))}
+    </BaseRadioGroup>
+  </FormControl>
+)
 
 RadioGroup.defaultProps = {
-  items: [],
-  nameKey: 'name',
-  valueKey: 'slug',
   grid: 110
 }
 
-export default withStyles(styles)(RadioGroup)
+export default RadioGroup

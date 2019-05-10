@@ -1,24 +1,19 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import MuiSwitch from '@material-ui/core/Switch'
 import FormControlLabel from '@material-ui/core/FormControlLabel'
-import { fieldToSwitch } from 'formik-material-ui'
+import { Switch as BaseSwitch } from 'formik-material-ui'
 
-const Switch = ({ label = '', ...props }) => {
+const Switch = ({ label, ...props }) => {
   return (
     <FormControlLabel
-      control={
-        <MuiSwitch
-          {...fieldToSwitch(props)}
-        />
-      }
+      control={<BaseSwitch {...props} />}
       label={label}
     />
   )
 }
 
-Switch.propTypes = {
-  label: PropTypes.string
+Switch.defaultProps = {
+
 }
 
 export default Switch

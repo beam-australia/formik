@@ -1,32 +1,42 @@
 import React from 'react'
 import { storiesOf } from '@storybook/react'
 import * as Yup from 'yup'
-import { Grid, FormControl, FormGroup, FormLabel } from '@material-ui/core'
-import Form from 'testing/Form'
 import { Field } from 'formik'
+import Form from 'testing/Form'
 import Checkbox from './'
 
 const schema = Yup.object().shape({
-  expert: Yup.string().required()
+  plants: Yup.bool().oneOf([false], 'Plant cannot be selected'),
+  animals: Yup.bool().oneOf([true], 'Animals is required'),
+  fungus: Yup.bool().oneOf([true], 'Fungus must be selected to continue')
 })
 
 storiesOf('Fields', module)
   .add('Checkbox', () =>
     <Form
       schema={schema}
-      initialValues={{ terms: false }}
+      initialValues={{
+        plants: false,
+        animals: true,
+        fungus: true
+      }}
     >
-      <Grid item xs={4}>
-        <FormControl name='terms' component='fieldset' >
-          <FormLabel component='legend'>Do your agree to the terms and conditions?</FormLabel>
-          <FormGroup>
-            <Field
-              name='terms'
-              label='Yes I agree.'
-              component={Checkbox}
-            />
-          </FormGroup>
-        </FormControl>
-      </Grid>
+      <Field
+        name='plants'
+        label='Plants'
+        component={Checkbox}
+      />
+      <Field
+        name='animals'
+        label='Animals'
+        component={Checkbox}
+        required
+      />
+      <Field
+        name='fungus'
+        label='Fungus'
+        component={Checkbox}
+        required
+      />
     </Form>
   )

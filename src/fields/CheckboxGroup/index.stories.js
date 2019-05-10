@@ -1,25 +1,52 @@
 import React from 'react'
 import { storiesOf } from '@storybook/react'
 import * as Yup from 'yup'
+import Divider from 'testing/Divider'
+import { FieldArray } from 'formik'
 import Form from 'testing/Form'
-import { fungi } from 'testing/mocks'
+import { phylum, kingdoms } from 'testing/mocks'
 import CheckboxGroup from './'
 
 const schema = Yup.object().shape({
-  fungi: Yup.array().of(Yup.string()).min(2).required()
+  phyla: Yup.array().max(3).required(),
+  kingdoms: Yup.array().max(2).required()
 })
 
-storiesOf('Fields', module)
+storiesOf('Groups', module)
   .add('CheckboxGroup', () =>
     <Form
       schema={schema}
-      initialValues={{ fungi: ['basidiomycota', 'glomeromycota'] }}
+      initialValues={{
+        phyla: ['nematomorpha', 'onychophora'],
+        kingdoms: ['fungus']
+      }}
     >
-      <CheckboxGroup
-        name='fungi'
-        label='Fungi'
-        items={fungi}
-        grid={160}
-      />
+      <Divider title='Grid layout'>
+        <FieldArray
+          name='phyla'
+          render={props => (
+            <CheckboxGroup
+              {...props}
+              label='Animal phyla'
+              helperText='Only select three phylum'
+              options={phylum}
+            />
+          )}
+        />
+      </Divider>
+      <Divider title='List layout'>
+        <FieldArray
+          name='kingdoms'
+          render={props => (
+            <CheckboxGroup
+              {...props}
+              label='Kingdoms of life'
+              helperText='Only select two kingdoms'
+              options={kingdoms}
+              grid={false}
+            />
+          )}
+        />
+      </Divider>
     </Form>
   )
