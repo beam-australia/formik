@@ -8,7 +8,7 @@ before_script:
 script:
   - yarn run test
 after_success:
-  - yarn run deploy-storybook -- --ci
+  - yarn run deploy -- --ci
 deploy:
   provider: npm
   email: andrewmclagan@gmail.com

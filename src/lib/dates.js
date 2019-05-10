@@ -1,3 +1,14 @@
+export const days = (date) => {
+  const days = [
+    { value: '', label: 'Day', disabled: true }
+  ]
+  const numberOfDays = new Date(date.getFullYear(), date.getMonth(), 0).getDate()
+  for (let i = 1; i < (numberOfDays + 1); i++) {
+    days.push({ value: i, label: i })
+  }
+  return days
+}
+
 export const months = [
   { value: '', label: 'Month', disabled: true },
   { label: 'January', value: 0 },

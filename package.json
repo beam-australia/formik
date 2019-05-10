@@ -20,6 +20,10 @@
     "preversion": "yarn build && yarn test",
     "postversion": "git push --tags && git push"
   },
+  "dependencies": {
+    "deep-rename-keys": "^0.2.1",
+    "formik-material-ui": "^0.0.16"
+  },
   "peerDependencies": {
     "@beam-australia/material-tus": "^0.5.7",
     "@material-ui/core": "^3.0.0",
@@ -78,9 +82,5 @@
   },
   "files": [
     "dist"
-  ],
-  "dependencies": {
-    "deep-rename-keys": "^0.2.1",
-    "formik-material-ui": "^0.0.16"
-  }
+  ]
 }

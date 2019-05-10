@@ -18,7 +18,7 @@ storiesOf('Dropdowns', module)
         discovered_at: '2014/10/10'
       }}
     >
-      <Divider title='Default variant'>
+      <Divider title='Default'>
         <Field
           name='discovered_at'
           label='Species first discovered at'
@@ -32,6 +32,24 @@ storiesOf('Dropdowns', module)
           label='Species first discovered at'
           helperText='Must be more recent the year 2000'
           variant='outlined'
+          component={DateSelect}
+        />
+      </Divider>
+      <Divider title='Month and year'>
+        <Field
+          name='discovered_at'
+          label='Species first discovered at'
+          helperText='Must be more recent the year 2000'
+          format='my'
+          component={DateSelect}
+        />
+      </Divider>
+      <Divider title='Day and month'>
+        <Field
+          name='discovered_at'
+          label='Species first discovered at'
+          helperText='Must be more recent the year 2000'
+          format='dm'
           component={DateSelect}
         />
       </Divider>
