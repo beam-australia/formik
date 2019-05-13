@@ -34,56 +34,61 @@ export const invertebrates = [
     value: 'porifera',
     label: 'Porifera',
     children: [
+      { value: -1, label: 'All porifera' },
       { value: 'brain-sponge', label: 'Brain Sponge' },
       { value: 'sulphur-sponge', label: 'Sulphur Sponge' },
       { value: 'vase-sponge', label: 'Vase Sponge' },
-      { value: 'boring-sponge', label: 'Boring Sponge' },
-      { value: 'heavenly-sponge', label: 'Heavenly Sponge' },
+      { value: 'boring-sponge', label: 'Boring Sponge', disabled: true },
+      { value: 'heavenly-sponge', label: 'Heavenly Sponge' }
     ]
   },
   {
     value: 'cnidarians',
     label: 'Cnidarians',
     children: [
+      { value: -1, label: 'All cnidarians' },
       { value: 'pale-anemone', label: 'Pale Anemone' },
       { value: 'hidden-anemone', label: 'Hidden Anemone' },
       { value: 'fire-coral', label: 'Fire Coral' },
-      { value: 'plume-hydroid', label: 'Plume Hydroid' },
+      { value: 'plume-hydroid', label: 'Plume Hydroid', disabled: true },
       { value: 'thread-hydroid', label: 'Thread Hydroid' },
       { value: 'moon-jelly', label: 'Moon Jelly' },
-      { value: 'sea-nettle', label: 'Sea Nettle' },
+      { value: 'sea-nettle', label: 'Sea Nettle' }
     ]
   },
   {
     value: 'platyhelminthes',
     label: 'Platyhelminthes',
     children: [
+      { value: -1, label: 'All platyhelminthes' },
       { value: 'blood-fluke', label: 'Blood fluke' },
       { value: 'liver-fluke', label: 'Liver fluke' },
-      { value: 'taenia', label: 'Taenia' },
-      { value: 'tapeworm', label: 'Tapeworm' },
+      { value: 'taenia', label: 'Taenia', disabled: true },
+      { value: 'tapeworm', label: 'Tapeworm' }
     ]
   },
   {
     value: 'mollusca',
     label: 'Mollusca',
     children: [
+      { value: -1, label: 'All mollusca' },
       { value: 'snail', label: 'Snail' },
       { value: 'clam', label: 'Clam' },
       { value: 'mussel', label: 'Mussel' },
       { value: 'oyster', label: 'Oyster' },
-      { value: 'slug', label: 'Slug' },
+      { value: 'slug', label: 'Slug', disabled: true },
       { value: 'limpet', label: 'Limpet' },
-      { value: 'scallop', label: 'Scallop' },
+      { value: 'scallop', label: 'Scallop' }
     ]
   },
   {
     value: 'arthropoda',
     label: 'Arthropoda',
     children: [
+      { value: -1, label: 'All arthropoda' },
       { value: 'insect', label: 'Insect' },
       { value: 'arachnid', label: 'Arachnid' },
-      { value: 'crustacean', label: 'Crustacean' },
+      { value: 'crustacean', label: 'Crustacean' }
     ]
   },
 ]

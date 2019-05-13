@@ -22,7 +22,8 @@
   },
   "dependencies": {
     "deep-rename-keys": "^0.2.1",
-    "formik-material-ui": "^0.0.16"
+    "formik-material-ui": "^0.0.16",
+    "obj-traverse": "^1.0.0"
   },
   "peerDependencies": {
     "@beam-australia/material-tus": "^0.5.7",

@@ -2,6 +2,7 @@ import Checkbox from 'fields/Checkbox'
 import CheckboxGroup from 'fields/CheckboxGroup'
 import ConditionalField from 'fields/ConditionalField'
 import DateSelect from 'fields/DateSelect'
+import MultiSelect from 'fields/MultiSelect'
 import Password from 'fields/Password'
 import RadioGroup from 'fields/RadioGroup'
 import Select from 'fields/Select'
@@ -20,6 +21,7 @@ export {
   CheckboxGroup,
   ConditionalField,
   DateSelect,
+  MultiSelect,
   Password,
   RadioGroup,
   Select,
