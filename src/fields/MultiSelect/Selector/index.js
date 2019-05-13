@@ -1,5 +1,5 @@
 import React from 'react'
-import { findFirst } from 'obj-traverse'
+import Traverse from 'obj-traverse'
 import omit from 'lodash/omit'
 import classNames from 'classnames'
 import { withStyles } from '@material-ui/core/styles'
@@ -45,7 +45,7 @@ class Selector extends React.Component {
   }
 
   findTreeNode = (value) => {
-    return findFirst({ children: this.props.options }, 'children', { value })
+    return Traverse.findFirst({ children: this.props.options }, 'children', { value })
   }
 
   setValue = (field, selection) => {
