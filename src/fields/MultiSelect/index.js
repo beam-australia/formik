@@ -1,5 +1,6 @@
 import React from 'react'
 import find from 'lodash/find'
+import { getIn } from 'formik'
 import FormControl from 'components/FormControl'
 import SelectionList from './SelectionList'
 import Selector from './Selector'
@@ -11,7 +12,7 @@ class MultiSelect extends React.Component {
   }
 
   addItem = (selection) => {
-    const current = this.props.form.values[this.props.name]
+    const current = getIn(this.props.form.values, this.props.name)
     if (find(current, selection)) {
       this.setState({ alreadySelected: true })
     } else {
@@ -31,6 +32,7 @@ class MultiSelect extends React.Component {
     const {
       variant,
       ListItemText,
+      maxItems,
       options,
       label,
       helperText,
@@ -38,18 +40,19 @@ class MultiSelect extends React.Component {
       name,
       form
     } = this.props
+    const values = getIn(form.values, name)
     return (
       <FormControl name={name} helperText={helperText} label={label}>
         <SelectionList
           disabled={form.isSubmitting}
-          items={form.values[name]}
+          items={values}
           removeItem={this.removeItem}
           ListItemText={ListItemText}
         />
         <Selector
           alreadySelected={this.state.alreadySelected}
           onChange={this.onChange}
-          disabled={form.isSubmitting}
+          disabled={values.length >= maxItems || form.isSubmitting}
           variant={variant}
           addItem={this.addItem}
           options={options}
@@ -62,6 +65,7 @@ class MultiSelect extends React.Component {
 }
 
 MultiSelect.defaultProps = {
+  maxItems: 10,
   buttonText: 'Add',
   ListItemText: ListItemText
 }

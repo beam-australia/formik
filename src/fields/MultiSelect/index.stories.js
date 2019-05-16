@@ -29,7 +29,7 @@ storiesOf('Dropdowns', module)
             <MultiSelect
               {...props}
               label='Vulnerable invertebrates'
-              helperText='Only select vulnerable species'
+              helperText='Limit of 10 selections'
               options={invertebrates}
             />
           )}
