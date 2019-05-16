@@ -8,7 +8,6 @@ import RadioGroup from 'fields/RadioGroup'
 import Select from 'fields/Select'
 import Switch from 'fields/Switch'
 import TextField from 'fields/TextField'
-import TreeSelect from 'fields/TreeSelect'
 import Upload from 'fields/Upload'
 
 import FormResponse from 'components/FormResponse'
@@ -30,7 +29,6 @@ export {
   Select,
   Switch,
   TextField,
-  TreeSelect,
   Upload,
   FormResponse,
   SubmitButton,
