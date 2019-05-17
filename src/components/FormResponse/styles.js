@@ -12,12 +12,19 @@ export default theme => ({
     display: 'flex',
     flexDirection: 'row',
     justifyContent: 'center',
-    marginTop: theme.spacing.unit * 2
+    margin: 0
   },
   icon: {
     paddingRight: theme.spacing.unit * 2
   },
   typography: {
+    marginTop: 2,
     textAlign: 'center'
+  },
+  marginDense: {
+    margin: theme.spacing.unit
+  },
+  marginNormal: {
+    margin: theme.spacing.unit * 2
   }
 })
