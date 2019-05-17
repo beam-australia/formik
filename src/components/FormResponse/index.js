@@ -8,7 +8,7 @@ import Typography from '@material-ui/core/Typography'
 import { withStyles } from '@material-ui/core/styles'
 import styles from './styles'
 
-export const FormResponse = ({ classes, formik: { status }, margin }) => {
+export const FormResponse = ({ classes, formik: { status }, margin, className }) => {
   if (!status || !status.message) {
     return null
   }
@@ -22,7 +22,7 @@ export const FormResponse = ({ classes, formik: { status }, margin }) => {
     [classes.marginNormal]: margin === 'normal'
   }
   return (
-    <div className={classNames(classes.root, errorClass, marginClass)}>
+    <div className={classNames(className, classes.root, errorClass, marginClass)}>
       <div className={classes.icon}>
         {isError ? <ErrorIcon /> : <SuccessIcon />}
       </div>
