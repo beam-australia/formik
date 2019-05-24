@@ -15,16 +15,16 @@ export default theme => ({
     margin: 0
   },
   icon: {
-    paddingRight: theme.spacing.unit * 2
+    paddingRight: theme.spacing(2)
   },
   typography: {
     marginTop: 2,
     textAlign: 'center'
   },
   marginDense: {
-    margin: theme.spacing.unit
+    margin: theme.spacing()
   },
   marginNormal: {
-    margin: theme.spacing.unit * 2
+    margin: theme.spacing(2)
   }
 })
