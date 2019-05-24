@@ -35,7 +35,7 @@ class DateSelect extends React.Component {
     const date = new Date(field.value)
     return (
       <FormControl name={field.name} helperText={helperText} label={label}>
-        <Grid container spacing={24}>
+        <Grid container spacing={5}>
           {this.props.format.includes('d') &&
             <Grid item sm={this.numberOfCols()}>
               <Select

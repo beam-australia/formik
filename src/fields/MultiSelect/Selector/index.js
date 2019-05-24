@@ -61,7 +61,7 @@ class Selector extends React.Component {
     const { options, buttonText, variant, classes, disabled, alreadySelected } = this.props
     const { primary, secondary } = this.state
     return (
-      <Grid container spacing={16}>
+      <Grid container spacing={3}>
         <Grid item sm={5}>
           <Select
             disabled={disabled}

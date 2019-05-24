@@ -37,7 +37,7 @@ class ConditionalField extends React.Component {
     const { label, helperText, classes } = this.props
     const children = this.getChildren()
     return (
-      <Grid container spacing={16}>
+      <Grid container spacing={3}>
         {label &&
           <Grid item sm={12} className={classes.label}>
             <FormLabel>{label}</FormLabel>
