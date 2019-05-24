@@ -26,7 +26,7 @@
     "obj-traverse": "^1.0.0"
   },
   "peerDependencies": {
-    "@beam-australia/material-tus": "^0.5.7",
+    "@beam-australia/material-tus": "^0.6.0",
     "@material-ui/core": "^4.0.0",
     "@material-ui/icons": "^4.0.0",
     "formik": "^1.5.0",
@@ -41,7 +41,7 @@
     "@babel/preset-env": "^7.3.4",
     "@babel/preset-react": "^7.0.0",
     "@babel/preset-stage-0": "^7.0.0",
-    "@beam-australia/material-tus": "^0.5.7",
+    "@beam-australia/material-tus": "^0.6.0",
     "@material-ui/core": "^4.0.0",
     "@material-ui/icons": "^4.0.0",
     "@storybook/addon-actions": "^5.0.0",
