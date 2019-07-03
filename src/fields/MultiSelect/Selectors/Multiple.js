@@ -9,7 +9,7 @@ import Select from 'components/Select'
 import { connect } from 'formik'
 import styles from './styles'
 
-class Selector extends React.Component {
+class Multiple extends React.Component {
   state = {
     primary: '',
     secondary: ''
@@ -58,11 +58,14 @@ class Selector extends React.Component {
   }
 
   render() {
-    const { options, buttonText, variant, classes, disabled, alreadySelected } = this.props
+    const { options, buttonText, variant, classes, disabled, alreadySelected, visible } = this.props
     const { primary, secondary } = this.state
+    if (visible === false) {
+      return null
+    }
     return (
-      <Grid container spacing={3}>
-        <Grid item sm={5}>
+      <Grid container spacing={2}>
+        <Grid item md={5}>
           <Select
             disabled={disabled}
             variant={variant}
@@ -71,7 +74,7 @@ class Selector extends React.Component {
             value={primary ? primary.value : ''}
           />
         </Grid>
-        <Grid item sm={5}>
+        <Grid item md={5}>
           <Select
             disabled={disabled}
             variant={variant}
@@ -82,7 +85,7 @@ class Selector extends React.Component {
             error={alreadySelected}
           />
         </Grid>
-        <Grid item sm={2}>
+        <Grid item md={2}>
           <Button
             fullWidth
             disabled={disabled}
@@ -101,5 +104,5 @@ class Selector extends React.Component {
 }
 
 export default withStyles(styles)(
-  connect(Selector)
+  connect(Multiple)
 )

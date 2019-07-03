@@ -4,11 +4,12 @@ import * as Yup from 'yup'
 import { FieldArray } from 'formik'
 import Divider from 'testing/Divider'
 import Form from 'testing/Form'
-import { invertebrates } from 'testing/mocks'
+import { invertebrates, kingdoms } from 'testing/mocks'
 import MultiSelect from './'
 
 const schema = Yup.object().shape({
   invertebrates: Yup.array().min(3).required(),
+  kingdoms: Yup.array().min(3).required(),
 })
 
 storiesOf('Dropdowns', module)
@@ -19,7 +20,8 @@ storiesOf('Dropdowns', module)
         invertebrates: [
           { value: 'porifera', label: 'Porifera' },
           { value: 'porifera', label: 'Porifera', child: { value: 'sulphur-sponge', label: 'Sulphur Sponge' } },
-        ]
+        ],
+        kingdoms: [],
       }}
     >
       <Divider title='Default settings'>
@@ -45,6 +47,22 @@ storiesOf('Dropdowns', module)
               label='Vulnerable invertebrates'
               helperText='Only select vulnerable species'
               options={invertebrates}
+            />
+          )}
+        />
+      </Divider>
+      <Divider title='Single selector'>
+        <FieldArray
+          name='kingdoms'
+          render={props => (
+            <MultiSelect
+              {...props}
+              variant='outlined'
+              label='Animal kingdoms'
+              helperText='Select your area of interest'
+              options={kingdoms}
+              selector='Single'
+              addNewText='Add new kingdom'
             />
           )}
         />
