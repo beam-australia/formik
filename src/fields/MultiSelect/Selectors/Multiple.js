@@ -58,7 +58,7 @@ class Multiple extends React.Component {
   }
 
   render() {
-    const { options, buttonText, variant, classes, disabled, alreadySelected, visible } = this.props
+    const { options, buttonText, variant, classes, disabled, visible } = this.props
     const { primary, secondary } = this.state
     if (visible === false) {
       return null
@@ -81,8 +81,6 @@ class Multiple extends React.Component {
             options={this.getSecondaryOptions()}
             onChange={this.onChangeSecondary}
             value={secondary ? secondary.value : ''}
-            helperText={alreadySelected ? 'Value has already been selected' : ''}
-            error={alreadySelected}
           />
         </Grid>
         <Grid item md={2}>

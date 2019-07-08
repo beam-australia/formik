@@ -55,7 +55,6 @@ class Single extends React.Component {
       classes,
       disabled,
       visible,
-      alreadySelected,
       onHide
     } = this.props;
     const { selection } = this.state;
@@ -70,11 +69,10 @@ class Single extends React.Component {
             variant={variant}
             options={options}
             onChange={this.onChange}
-            helperText={alreadySelected ? 'Value has already been selected' : ''}
             value={selection.value}
           />
         </Grid>
-        <Grid item sm={4} md={2}>
+        <Grid item xs={4} md={2}>
           <Button
             fullWidth
             disabled={disabled}
@@ -89,7 +87,7 @@ class Single extends React.Component {
             {buttonText}
           </Button>
         </Grid>
-        <Grid item sm={4} md={2}>
+        <Grid item xs={4} md={2}>
           <Button
             fullWidth
             disabled={disabled}
@@ -99,7 +97,7 @@ class Single extends React.Component {
             })}
             color="primary"
             onClick={onHide}
-          >Cancel</Button>
+          >Done</Button>
         </Grid>
       </Grid>
     );

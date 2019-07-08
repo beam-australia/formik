@@ -34,6 +34,15 @@ class MultiSelect extends React.Component {
     this.setState({ selectorVisible: !this.state.selectorVisible });
   };
 
+  getHelperText = () => {
+    if (this.state.selectorVisible && this.state.alreadySelected) {
+      return "Value has already been selected";
+    } else if (this.state.selectorVisible && !this.state.alreadySelected) {
+      return this.props.helperText;
+    }
+    return "";
+  };
+
   render() {
     const {
       variant,
@@ -50,9 +59,8 @@ class MultiSelect extends React.Component {
     const { selectorVisible } = this.state;
     const values = getIn(form.values, name);
     const Selector = Selectors[selector];
-    const helperText = selectorVisible ? this.props.helperText : ''
     return (
-      <FormControl name={name} helperText={helperText} label={label}>
+      <FormControl name={name} helperText={this.getHelperText()} label={label}>
         <SelectionList
           disabled={form.isSubmitting}
           items={values}
