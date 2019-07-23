@@ -1,6 +1,4 @@
 import React from "react";
-import Traverse from "obj-traverse";
-import omit from "lodash/omit";
 import classNames from "classnames";
 import { withStyles } from "@material-ui/core/styles";
 import Grid from "@material-ui/core/Grid";
@@ -19,32 +17,15 @@ class Single extends React.Component {
   }
 
   setInitialState = () => {
-    this.setValue(this.props.options[0]);
+    this.setState({ selection: this.props.options[0].value });
   };
 
   onChange = ({ target: { value } }) => {
-    const node = this.findTreeNode(value);
-    this.setValue(node);
-    this.props.onChange();
+    this.setState({ selection: value });
   };
 
   onAddItem = () => {
     this.props.addItem(this.state.selection);
-  };
-
-  findTreeNode = value => {
-    return Traverse.findFirst({ children: this.props.options }, "children", {
-      value
-    });
-  };
-
-  setValue = selection => {
-    this.setState({ selection: omit(selection, ["children"]) });
-  };
-
-  getSecondaryOptions = () => {
-    const primary = this.findTreeNode(this.state.primary.value);
-    return primary ? primary.children : this.props.options[0].children;
   };
 
   render() {
@@ -63,16 +44,16 @@ class Single extends React.Component {
     }
     return (
       <Grid container spacing={2}>
-        <Grid item sm={12} md={8}>
+        <Grid item xs={12} md={8}>
           <Select
             disabled={disabled}
             variant={variant}
             options={options}
             onChange={this.onChange}
-            value={selection.value}
+            value={selection}
           />
         </Grid>
-        <Grid item xs={4} md={2}>
+        <Grid item xs={6} md={2}>
           <Button
             fullWidth
             disabled={disabled}
@@ -87,7 +68,7 @@ class Single extends React.Component {
             {buttonText}
           </Button>
         </Grid>
-        <Grid item xs={4} md={2}>
+        <Grid item xs={2} md={2}>
           <Button
             fullWidth
             disabled={disabled}

@@ -1,7 +1,7 @@
 export default theme => ({
   listItem: {
     borderTop: '1px solid #eee',
-    '&:first-child': {
+    '&:first-of-type': {
       borderTop: 'none'
     }
   }

@@ -22,7 +22,7 @@ const TestForm = ({
       initialValues={initialValues}
       render={props => (
         <Form>
-          <Grid container spacing={24}>
+          <Grid container spacing={5}>
             <Grid item xs={12}>
               <Paper className={classes.paper} elevation={0}>
                 {children}

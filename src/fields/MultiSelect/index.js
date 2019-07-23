@@ -1,23 +1,20 @@
 import React from "react";
-import find from "lodash/find";
+import disableSelected from "lib/disableSelected";
 import { getIn } from "formik";
 import FormControl from "components/FormControl";
 import SelectionList from "./SelectionList";
-import Selectors from "./Selectors";
+import Selector from "./Selector";
 import ListItemText from "./ListItemText";
 import AddNewButton from "./AddNewButton";
 
 class MultiSelect extends React.Component {
   state = {
-    alreadySelected: false,
     selectorVisible: false
   };
 
   addItem = selection => {
-    const current = getIn(this.props.form.values, this.props.name);
-    if (find(current, selection)) {
-      this.setState({ alreadySelected: true });
-    } else {
+    const selections = getIn(this.props.form.values, this.props.name);
+    if (false === selections.includes(selection)) {
       this.props.push(selection);
     }
   };
@@ -26,21 +23,8 @@ class MultiSelect extends React.Component {
     this.props.remove(index);
   };
 
-  onChange = () => {
-    this.setState({ alreadySelected: false });
-  };
-
   toggleSelector = () => {
     this.setState({ selectorVisible: !this.state.selectorVisible });
-  };
-
-  getHelperText = () => {
-    if (this.state.selectorVisible && this.state.alreadySelected) {
-      return "Value has already been selected";
-    } else if (this.state.selectorVisible && !this.state.alreadySelected) {
-      return this.props.helperText;
-    }
-    return "";
   };
 
   render() {
@@ -48,22 +32,22 @@ class MultiSelect extends React.Component {
       variant,
       ListItemText,
       maxItems,
-      options,
       label,
       addText,
       addNewText,
+      helperText,
       name,
-      selector,
       form
     } = this.props;
     const { selectorVisible } = this.state;
-    const values = getIn(form.values, name);
-    const Selector = Selectors[selector];
+    const selections = getIn(form.values, name);
+    const options = disableSelected(this.props.options, selections);
     return (
-      <FormControl name={name} helperText={this.getHelperText()} label={label}>
+      <FormControl name={name} helperText={helperText} label={label}>
         <SelectionList
           disabled={form.isSubmitting}
-          items={values}
+          selections={selections}
+          options={options}
           removeItem={this.removeItem}
           ListItemText={ListItemText}
         />
@@ -75,9 +59,7 @@ class MultiSelect extends React.Component {
         <Selector
           onHide={() => this.toggleSelector()}
           visible={selectorVisible}
-          alreadySelected={this.state.alreadySelected}
-          onChange={this.onChange}
-          disabled={values.length >= maxItems || form.isSubmitting}
+          disabled={selections.length >= maxItems || form.isSubmitting}
           variant={variant}
           addItem={this.addItem}
           options={options}
@@ -94,8 +76,7 @@ MultiSelect.defaultProps = {
   maxItems: 10,
   addText: "Add",
   addNewText: "Add new item",
-  ListItemText: ListItemText,
-  selector: "Multiple"
+  ListItemText: ListItemText
 };
 
 export default MultiSelect;
