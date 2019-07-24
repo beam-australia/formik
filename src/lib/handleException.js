@@ -1,26 +1,19 @@
-import transformErrors from './transformErrors'
+import transformErrors from "./transformErrors";
 
 /**
  * Form exception utility
  * @param {Object} response
  * @param {Object} actions
- * @param {string} override replaces exception message
  * @return {undefined}
  */
-export default function handleException(response, actions, override = '') {
-  let message = ''
-  switch (response.statusCode) {
-    case 502:
-      message = 'We are currently doing some maintenece, please come back later.'
-      break
-    case 422:
-      message = 'Please address the errors above.'
-      break
-    default:
-      message = override.length ? override : response.message
-      break
+export default function handleException(response, actions) {
+  let message = "";
+  if (response.statusCode > 499 || !response.statusCode) {
+    message = "Sorry the our systems seem to be down. Please try again.";
+  } else {
+    message = response.message;
   }
-  actions.setStatus({ success: false, message })
-  actions.setErrors(transformErrors(response))
-  actions.setSubmitting(false)
+  actions.setStatus({ success: false, message });
+  actions.setErrors(transformErrors(response));
+  actions.setSubmitting(false);
 }

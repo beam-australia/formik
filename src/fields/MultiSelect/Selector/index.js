@@ -17,7 +17,10 @@ class Single extends React.Component {
   }
 
   setInitialState = () => {
-    this.setState({ selection: this.props.options[0].value });
+    const selection = this.props.options.length
+      ? this.props.options[0].value
+      : "";
+    this.setState({ selection });
   };
 
   onChange = ({ target: { value } }) => {
@@ -78,7 +81,9 @@ class Single extends React.Component {
             })}
             color="primary"
             onClick={onHide}
-          >Done</Button>
+          >
+            Done
+          </Button>
         </Grid>
       </Grid>
     );
