@@ -10,7 +10,7 @@ import Switch from 'fields/Switch'
 import TextField from 'fields/TextField'
 import Upload from 'fields/Upload'
 
-import FormResponse from 'components/FormResponse'
+import FormStatus from 'components/FormStatus'
 import SubmitButton from 'components/SubmitButton'
 
 import handleException from 'lib/handleException'
@@ -30,7 +30,7 @@ export {
   Switch,
   TextField,
   Upload,
-  FormResponse,
+  FormStatus,
   SubmitButton,
   handleException,
   handleResponse,

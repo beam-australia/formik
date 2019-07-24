@@ -8,7 +8,7 @@ import handleException from './handleException'
  */
 export default function onFormSubmit(action) {
   return (values, actions) => {
-    return action(values)
+    return action(values, actions)
       .then(response => handleResponse(response, actions))
       .catch(response => handleException(response, actions))
   }
