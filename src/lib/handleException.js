@@ -9,7 +9,7 @@ import transformErrors from "./transformErrors";
 export default function handleException(response, actions) {
   let message = "";
   if (response.statusCode > 499 || !response.statusCode) {
-    message = "Sorry the our systems seem to be down. Please try again.";
+    message = "The site is experiencing technical difficulties.";
   } else {
     message = response.message;
   }

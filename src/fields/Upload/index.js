@@ -1,27 +1,34 @@
-import React from 'react'
-import FormControl from '../../components/FormControl'
-import FormLabel from '@material-ui/core/FormLabel'
-import { withStyles } from '@material-ui/core/styles'
-import mapUpload from '../../lib/mapUpload'
-import TusUpload, { propTypes as tusPropTypes } from '@beam-australia/material-tus'
-import styles from './styles'
+import React from "react";
+import PropTypes from "prop-types";
+import FormControl from "../../components/FormControl";
+import FormLabel from "@material-ui/core/FormLabel";
+import { withStyles } from "@material-ui/core/styles";
+import MapUpload from "../../lib/MapUpload";
+import TusUpload, {
+  propTypes as tusPropTypes,
+  defaultProps as tusDefaultProps,
+  FilePreview
+} from "@beam-australia/material-tus";
+import styles from "./styles";
 
 class Upload extends React.Component {
-  onSuccess = (state) => {
-    this.props.form.setFieldTouched(this.props.field.name)
-    this.props.form.setFieldValue(this.props.field.name, mapUpload(state.upload))
-  }
+  onSuccess = state => {
+    this.props.form.setFieldTouched(this.props.field.name);
+    this.props.form.setFieldValue(
+      this.props.field.name,
+      MapUpload.fromTusUpload(state.upload)
+    );
+  };
 
   onError = () => {
-    this.props.form.setFieldTouched(this.props.field.name)
-    this.props.form.setFieldError(this.props.field.name, '')
-  }
+    this.props.form.setFieldTouched(this.props.field.name);
+    this.props.form.setFieldError(this.props.field.name, "");
+  };
 
   onReset = () => {
-    const value = this.props.form.initialValues[this.props.field.name]
-    this.props.form.setFieldValue(this.props.field.name, value)
-    this.props.form.setFieldTouched(this.props.field.name, false)
-  }
+    this.props.form.setFieldValue(this.props.field.name, null);
+    this.props.form.setFieldTouched(this.props.field.name, false);
+  };
 
   render() {
     const {
@@ -31,32 +38,49 @@ class Upload extends React.Component {
       endpoint,
       buttonLabel,
       allowedFileTypes,
+      initialPreview,
       maxFileSize,
       field: { name },
       form
-    } = this.props
+    } = this.props;
+    const preview = form.values[name];
     return (
       <FormControl name={name} label={label}>
-        <TusUpload
-          className={classes.root}
-          name={name}
-          endpoint={endpoint}
-          helperText={helperText}
-          label={buttonLabel}
-          allowedFileTypes={allowedFileTypes}
-          maxFileSize={maxFileSize}
-          onSuccess={this.onSuccess}
-          onError={this.onError}
-          onReset={this.onReset}
-          disabled={form.isSubmitting}
-        />
+        <React.Fragment>
+          {initialPreview && preview && (
+            <FilePreview
+              upload={MapUpload.toTusUpload(preview)}
+              reset={this.onReset}
+            />
+          )}
+          {((initialPreview && !preview) || !initialPreview) && (
+            <TusUpload
+              className={classes.root}
+              name={name}
+              endpoint={endpoint}
+              helperText={helperText}
+              label={buttonLabel}
+              allowedFileTypes={allowedFileTypes}
+              maxFileSize={maxFileSize}
+              onSuccess={this.onSuccess}
+              onError={this.onError}
+              onReset={this.onReset}
+              disabled={form.isSubmitting}
+            />
+          )}
+        </React.Fragment>
       </FormControl>
-    )
+    );
   }
 }
 
 Upload.propTypes = {
+  initialPreview: PropTypes.bool,
   ...tusPropTypes
-}
+};
 
-export default withStyles(styles)(Upload)
+Upload.defaultProps = {
+  initialPreview: false
+};
+
+export default withStyles(styles)(Upload);
