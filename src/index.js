@@ -13,10 +13,7 @@ import Upload from 'fields/Upload'
 import FormStatus from 'components/FormStatus'
 import SubmitButton from 'components/SubmitButton'
 
-import handleException from 'lib/handleException'
-import handleResponse from 'lib/handleResponse'
-import onFormSubmit from 'lib/onFormSubmit'
-import transformErrors from 'lib/transformErrors'
+import Handlers from 'lib/Handlers'
 
 export {
   Checkbox,
@@ -32,8 +29,5 @@ export {
   Upload,
   FormStatus,
   SubmitButton,
-  handleException,
-  handleResponse,
-  onFormSubmit,
-  transformErrors
+  Handlers
 }
