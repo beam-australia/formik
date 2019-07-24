@@ -6,7 +6,6 @@ import { withStyles } from "@material-ui/core/styles";
 import MapUpload from "../../lib/MapUpload";
 import TusUpload, {
   propTypes as tusPropTypes,
-  defaultProps as tusDefaultProps,
   FilePreview
 } from "@beam-australia/material-tus";
 import styles from "./styles";
