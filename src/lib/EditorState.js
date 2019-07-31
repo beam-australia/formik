@@ -9,8 +9,8 @@ function createWithContent(raw) {
   return EditorState.createWithContent(convertFromRaw(content));
 }
 
-function saveToString(state) {
-  const raw = convertToRaw(state.getCurrentContent())
+function saveToString(values, field) {
+  const raw = convertToRaw(values[field].getCurrentContent())
   return JSON.stringify(raw);
 }
 
