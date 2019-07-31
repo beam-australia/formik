@@ -1,6 +1,6 @@
 {
   "name": "@beam-australia/formik",
-  "version": "3.1.5",
+  "version": "3.1.6",
   "author": "andrewmclagan",
   "license": "MIT",
   "publishConfig": {
@@ -26,10 +26,10 @@
     "obj-traverse": "^1.0.0"
   },
   "peerDependencies": {
-    "draft-convert": "^2.0.0",
     "@beam-australia/material-tus": "^0.8.2",
     "@material-ui/core": "^4.0.0",
     "@material-ui/icons": "^4.0.0",
+    "draft-convert": "^2.0.0",
     "draft-js": "^0.10.0",
     "formik": "^1.5.8",
     "prop-types": "^15.0.0",
@@ -44,7 +44,6 @@
     "@babel/preset-env": "^7.3.4",
     "@babel/preset-react": "^7.0.0",
     "@babel/preset-stage-0": "^7.0.0",
-    "draft-convert": "^2.1.7",
     "@beam-australia/material-tus": "^0.8.2",
     "@material-ui/core": "^4.0.0",
     "@material-ui/icons": "^4.0.0",
@@ -56,6 +55,7 @@
     "babel-eslint": "^8.2.5",
     "babel-loader": "^8.0.5",
     "cross-env": "^5.1.4",
+    "draft-convert": "^2.1.7",
     "draft-js": "^0.10.0",
     "enzyme": "^3.9.0",
     "enzyme-adapter-react-16": "^1.11.2",
