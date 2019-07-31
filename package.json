@@ -29,6 +29,8 @@
     "@beam-australia/material-tus": "^0.8.2",
     "@material-ui/core": "^4.0.0",
     "@material-ui/icons": "^4.0.0",
+    "draft-js": "^0.10.0",
+    "react-draft-wysiwyg": "^1.0.0",
     "formik": "^1.5.8",
     "prop-types": "^15.0.0",
     "react": "^16.0.0",
