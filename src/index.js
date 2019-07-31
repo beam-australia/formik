@@ -15,6 +15,7 @@ import FormStatus from 'components/FormStatus'
 import SubmitButton from 'components/SubmitButton'
 
 import Handlers from 'lib/Handlers'
+import EditorState from 'lib/EditorState'
 
 export {
   Checkbox,
@@ -31,5 +32,6 @@ export {
   Upload,
   FormStatus,
   SubmitButton,
-  Handlers
+  Handlers,
+  EditorState
 }
