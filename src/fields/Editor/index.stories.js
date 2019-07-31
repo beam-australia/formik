@@ -12,7 +12,7 @@ const schema = Yup.object().shape({
   researchPaperSummary: Yup.object().required(),
 });
 
-const rawJsonState = '{"entityMap":{},"blocks":[{"key":"637gr","text":"Initialized from content state.","type":"unstyled","depth":0,"inlineStyleRanges":[],"entityRanges":[],"data":{}}]}';
+const rawHTML = '<h1>A Title</h1><p>A paragraph</p>';
 
 storiesOf("Fields", module).add("Editor", () => (
   <React.Fragment>
@@ -20,7 +20,7 @@ storiesOf("Fields", module).add("Editor", () => (
       schema={schema}
       initialValues={{
         researchPaper: EditorState.createEmpty(),
-        researchPaperSummary: EditorState.createWithContent(rawJsonState)
+        researchPaperSummary: EditorState.createWithContent(rawHTML)
       }}
     >
       <Divider title="With empty initial state">

@@ -1,19 +1,19 @@
 import { EditorState, convertFromRaw, convertToRaw } from "draft-js";
+import { convertToHTML, convertFromHTML } from "draft-convert";
 
 function createEmpty() {
   return EditorState.createEmpty();
 }
 
-function createWithContent(raw) {
-  const content = JSON.parse(raw);
-  return EditorState.createWithContent(convertFromRaw(content));
+function createWithContent(html) {
+  return EditorState.createWithContent(convertFromHTML(html));
 }
 
 function saveToString(values, field) {
-  const raw = convertToRaw(values[field].getCurrentContent());
+  const html = convertToHTML(values[field].getCurrentContent());
   return {
     ...values,
-    [field]: JSON.stringify(raw)
+    [field]: html
   };
 }
 
