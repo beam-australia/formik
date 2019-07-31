@@ -1,12 +1,15 @@
 .draft-js {
-  border: 1px solid #eee;
+  border: 1px solid #c4c4c4;
+  min-height: 250px;
 }
-.draft-js .public-DraftEditor-content,
-.draft-js .public-DraftEditorPlaceholder-root {
+.draft-js .public-DraftEditor-content {
   padding: 15px;
 }
+.draft-js .public-DraftEditorPlaceholder-root {
+  padding: 30px 15px;
+}
 .draft-js .DraftEditor-root {
-  border-top: 1px solid #eee;
+  border-top: 1px solid #c4c4c4;
 }
 .draft-js .rdw-editor-toolbar {
   border: none;

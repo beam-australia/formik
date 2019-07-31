@@ -16,7 +16,6 @@ class Editor extends React.Component {
       placeholder,
       field: { name, value }
     } = this.props;
-    console.log(this.props);
     return (
       <FormControl name={name} label={label}>
         <Draft
