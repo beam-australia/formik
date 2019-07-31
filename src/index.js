@@ -8,6 +8,7 @@ import RadioGroup from 'fields/RadioGroup'
 import Select from 'fields/Select'
 import Switch from 'fields/Switch'
 import TextField from 'fields/TextField'
+import Editor from 'fields/Editor'
 import Upload from 'fields/Upload'
 
 import FormStatus from 'components/FormStatus'
@@ -26,6 +27,7 @@ export {
   Select,
   Switch,
   TextField,
+  Editor,
   Upload,
   FormStatus,
   SubmitButton,
