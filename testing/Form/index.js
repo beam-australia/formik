@@ -2,7 +2,6 @@ import React from 'react'
 import { Formik, Form } from 'formik'
 import { Grid, Paper, withStyles } from '@material-ui/core'
 import SubmitButton from 'components/SubmitButton'
-import onFormSubmit from 'lib/onFormSubmit'
 import Json from 'testing/Json'
 import App from 'testing/App'
 import * as Actions from './actions'
@@ -17,7 +16,7 @@ const TestForm = ({
 }) => (
   <App>
     <Formik
-      onSubmit={onFormSubmit(formAction)}
+      onSubmit={formAction}
       validationSchema={schema}
       initialValues={initialValues}
       render={props => (
