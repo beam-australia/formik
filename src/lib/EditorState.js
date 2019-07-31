@@ -1,4 +1,4 @@
-import { EditorState, convertFromRaw, convertToRaw } from 'draft-js';
+import { EditorState, convertFromRaw, convertToRaw } from "draft-js";
 
 function createEmpty() {
   return EditorState.createEmpty();
@@ -10,12 +10,15 @@ function createWithContent(raw) {
 }
 
 function saveToString(values, field) {
-  const raw = convertToRaw(values[field].getCurrentContent())
-  return JSON.stringify(raw);
+  const raw = convertToRaw(values[field].getCurrentContent());
+  return {
+    ...values,
+    [field]: JSON.stringify(raw)
+  };
 }
 
 export default {
   createEmpty,
   createWithContent,
   saveToString
-}
+};
