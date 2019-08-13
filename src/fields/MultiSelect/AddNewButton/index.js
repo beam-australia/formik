@@ -7,6 +7,9 @@ import AddIcon from "@material-ui/icons/Add";
 const useStyles = makeStyles(theme => ({
   icon: {
     marginRight: theme.spacing(1) / 2
+  },
+  button: {
+    margin: '5px 0',
   }
 }));
 
@@ -21,7 +24,7 @@ export default ({ visible, buttonText, ...props }) => {
         <Button
           className={classes.button}
           variant="contained"
-          size="small"
+          size="medium"
           color="primary"
           {...props}
         >

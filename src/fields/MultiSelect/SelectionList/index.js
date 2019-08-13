@@ -15,32 +15,37 @@ const SelectionList = ({
   options,
   ListItemText,
   disabled
-}) => (
-  <List>
-    {options
-      .filter(option => selections.includes(option.value))
-      .map((item, index) => (
-        <ListItem
-          disabled={disabled}
-          key={index}
-          classes={{ container: classes.listItem }}
-        >
-          <MuiListItemText
-            primary={ListItemText(item)}
-            primaryTypographyProps={{ color: "primary" }}
-          />
-          <ListItemSecondaryAction>
-            <IconButton
-              aria-label="Delete"
-              onClick={() => removeItem(index)}
-              disabled={disabled}
-            >
-              <DeleteIcon />
-            </IconButton>
-          </ListItemSecondaryAction>
-        </ListItem>
-      ))}
-  </List>
-);
+}) => {
+  if (selections.length < 1) {
+    return null;
+  }
+  return (
+    <List>
+      {options
+        .filter(option => selections.includes(option.value))
+        .map((item, index) => (
+          <ListItem
+            disabled={disabled}
+            key={index}
+            classes={{ container: classes.listItem }}
+          >
+            <MuiListItemText
+              primary={ListItemText(item)}
+              primaryTypographyProps={{ color: "primary" }}
+            />
+            <ListItemSecondaryAction>
+              <IconButton
+                aria-label="Delete"
+                onClick={() => removeItem(index)}
+                disabled={disabled}
+              >
+                <DeleteIcon />
+              </IconButton>
+            </ListItemSecondaryAction>
+          </ListItem>
+        ))}
+    </List>
+  );
+};
 
 export default withStyles(styles)(SelectionList);

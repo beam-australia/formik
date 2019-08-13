@@ -21,6 +21,7 @@
     "postversion": "git push --tags && git push"
   },
   "dependencies": {
+    "capitalize": "^2.0.0",
     "deep-rename-keys": "^0.2.1",
     "formik-material-ui": "^0.0.19",
     "obj-traverse": "^1.0.0"

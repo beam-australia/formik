@@ -27,8 +27,9 @@ storiesOf('Dropdowns', module)
               {...props}
               variant='outlined'
               label='Animal kingdoms'
-              helperText='Select your area of interest'
+              helperText='Select your area of interest (max 3)'
               options={kingdoms}
+              maxItems={3}
               selector='Single'
               addNewText='Add new kingdom'
             />

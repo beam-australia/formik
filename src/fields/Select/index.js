@@ -1,22 +1,24 @@
-import React from 'react'
-import { TextField as BaseSelect } from 'formik-material-ui'
-import MapOptions from 'components/MapOptions'
+import React from "react";
+import { TextField as BaseSelect } from "formik-material-ui";
+import { Options, OptionGroups } from "components/Options";
 
-const Select = ({ options, emptyOption, ...props }) => (
+const Select = ({ options, group, ...props }) => (
   <BaseSelect {...props}>
-    <MapOptions options={options} emptyOption={emptyOption} />
+    {group === true && <OptionGroups groups={options} />}
+    {group === false && <Options options={options} />}
   </BaseSelect>
-)
+);
 
 Select.defaultProps = {
   fullWidth: true,
-  margin: 'normal',
+  margin: "normal",
   select: true,
-  type: 'text',
+  group: false,
+  type: "text",
   SelectProps: {
     native: true,
     displayEmpty: false
   }
-}
+};
 
-export default Select
+export default Select;
