@@ -46,46 +46,48 @@ class Single extends React.Component {
       return null;
     }
     return (
-      <Grid container spacing={2}>
-        <Grid item xs={12} md={8}>
-          <Select
-            disabled={disabled}
-            variant={variant}
-            options={options}
-            onChange={this.onChange}
-            value={selection}
-          />
+      <div className={classes.root}>
+        <Grid container spacing={1}>
+          <Grid item xs={12}>
+            <Select
+              disabled={disabled}
+              variant={variant}
+              options={options}
+              onChange={this.onChange}
+              value={selection}
+            />
+          </Grid>
+          <Grid item xs={6} md={3}>
+            <Button
+              fullWidth
+              disabled={disabled}
+              size={variant === "outlined" ? "large" : "medium"}
+              className={classNames({
+                [classes.outlinedButton]: variant === "outlined" ? true : false
+              })}
+              variant="contained"
+              color="primary"
+              onClick={this.onAddItem}
+            >
+              {buttonText}
+            </Button>
+          </Grid>
+          <Grid item xs={2} md={3}>
+            <Button
+              fullWidth
+              disabled={disabled}
+              size={variant === "outlined" ? "large" : "medium"}
+              className={classNames({
+                [classes.outlinedButton]: variant === "outlined" ? true : false
+              })}
+              color="primary"
+              onClick={onHide}
+            >
+              Done
+            </Button>
+          </Grid>
         </Grid>
-        <Grid item xs={6} md={2}>
-          <Button
-            fullWidth
-            disabled={disabled}
-            size={variant === "outlined" ? "large" : "medium"}
-            className={classNames({
-              [classes.outlinedButton]: variant === "outlined" ? true : false
-            })}
-            variant="contained"
-            color="primary"
-            onClick={this.onAddItem}
-          >
-            {buttonText}
-          </Button>
-        </Grid>
-        <Grid item xs={2} md={2}>
-          <Button
-            fullWidth
-            disabled={disabled}
-            size={variant === "outlined" ? "large" : "medium"}
-            className={classNames({
-              [classes.outlinedButton]: variant === "outlined" ? true : false
-            })}
-            color="primary"
-            onClick={onHide}
-          >
-            Done
-          </Button>
-        </Grid>
-      </Grid>
+      </div>
     );
   }
 }
