@@ -11,6 +11,8 @@ const schema = Yup.object().shape({
   kingdoms: Yup.string().oneOf(['plants', 'fungus']).required(),
   phylum: Yup.string().oneOf(['mollusca', 'cnidaria']).required(),
   class: Yup.string().oneOf(['arachnid', 'hagfish']).required(),
+  animals: Yup.string().required(),
+  invertebrate: Yup.string().required(),
 })
 
 storiesOf('Dropdowns', module)
@@ -22,6 +24,7 @@ storiesOf('Dropdowns', module)
         phylum: phylum[0].value,
         class: 'arachnid',
         animals: animals[0].value,
+        invertebrate: ["platyhelminthes"]
       }}
     >
       <Divider title='Standard variant'>
@@ -58,6 +61,16 @@ storiesOf('Dropdowns', module)
           name='animals'
           label='Species class'
           helperText='Should be one of "arachnid" or "hagfish"'
+          variant='outlined'
+          group={true}
+          component={Select}
+          options={animals}
+        />
+      </Divider>
+      <Divider title='Recieves array as value'>
+        <Field
+          name='invertebrate'
+          label='Species invertebrate'
           variant='outlined'
           group={true}
           component={Select}

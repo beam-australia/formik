@@ -21,7 +21,6 @@ const TestForm = ({
       initialValues={initialValues}
       render={props => (
         <Form>
-          {console.log(props)}
           <Grid container spacing={5}>
             <Grid item xs={12}>
               <Paper className={classes.paper} elevation={0}>
