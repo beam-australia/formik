@@ -61,12 +61,12 @@ class Single extends React.Component {
             <Button
               fullWidth
               disabled={disabled}
-              size={variant === "outlined" ? "large" : "medium"}
+              size="medium"
               className={classNames({
                 [classes.outlinedButton]: variant === "outlined" ? true : false
               })}
               variant="contained"
-              color="primary"
+              color="secondary"
               onClick={this.onAddItem}
             >
               {buttonText}
@@ -76,7 +76,7 @@ class Single extends React.Component {
             <Button
               fullWidth
               disabled={disabled}
-              size={variant === "outlined" ? "large" : "medium"}
+              size="medium"
               className={classNames({
                 [classes.outlinedButton]: variant === "outlined" ? true : false
               })}

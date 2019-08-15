@@ -1,16 +1,28 @@
 export const animals = [
-  { value: "", group: ""},
-  { value: "blue-whale", label: "Blue Whale", group: "mamal" },
-  { value: "ehesus-macaque", label: "Rhesus Macaque", group: "mamal" },
-  { value: "white-shark", label: "White Shark", group: "fish" },
-  { value: "cricket", label: "cricket", group: "insect" },
-  { value: "brushtail-possum", label: "Brushtail Possum", group: "mamal" },
-  { value: "grouper", label: "Grouper", group: "fish" },
-  { value: "flounder", label: "Flounder", group: "fish" },
-  { value: "platypus", label: "Platypus", group: "mamal" },
-  { value: "spider", label: "Spider", group: "insect" },
-  { value: "cyanobacteria", label: "Cyanobacteria", group: "" },
-  { value: "firmicutes", label: "Firmicutes", group: "" },
+  { value: "", group: "", children: [] },
+  { value: "blue-whale", label: "Blue Whale", group: "mamal", children: [
+    { value: "arachnid", label: "arachnid" },
+    { value: "cephalopod", label: "cephalopod" },
+    { value: "hagfish", label: "hagfish" },
+    { value: "chitons", label: "chitons" },
+    { value: "maxillopoda", label: "maxillopoda" }
+  ] },
+  { value: "ehesus-macaque", label: "Rhesus Macaque", group: "mamal", children: [] },
+  { value: "white-shark", label: "White Shark", group: "fish", children: [] },
+  { value: "cricket", label: "cricket", group: "insect", children: [] },
+  { value: "brushtail-possum", label: "Brushtail Possum", group: "mamal", children: [] },
+  { value: "grouper", label: "Grouper", group: "fish", children: [
+    { value: "plants", label: "Plants" },
+    { value: "animals", label: "Animals" },
+    { value: "fungus", label: "Fungus" },
+    { value: "protozoa", label: "Protozoa" },
+    { value: "chromista", label: "Chromista" }
+  ] },
+  { value: "flounder", label: "Flounder", group: "fish", children: [] },
+  { value: "platypus", label: "Platypus", group: "mamal", children: [] },
+  { value: "spider", label: "Spider", group: "insect", children: [] },
+  { value: "cyanobacteria", label: "Cyanobacteria", group: "", children: [] },
+  { value: "firmicutes", label: "Firmicutes", group: "", children: [] },
 ];
 
 export const kingdoms = [
