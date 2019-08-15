@@ -32,7 +32,6 @@ storiesOf("Dropdowns", module).add("Conditional Select", () => (
     <Divider title="Parent label, child helper text">
       <ConditionalField
         label="Select an insect"
-        combined="insect_classes"
         primary="insect.class"
         secondary="insect.species"
         options={invertebrates}

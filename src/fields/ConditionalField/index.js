@@ -1,6 +1,5 @@
 import React from "react";
 import find from "lodash/find";
-import isEqual from "lodash/isEqual";
 import { withStyles } from "@material-ui/core/styles";
 import FormLabel from "@material-ui/core/FormLabel";
 import FormHelperText from "@material-ui/core/FormHelperText";
@@ -14,10 +13,6 @@ class ConditionalField extends React.Component {
     if (prevPrimaryValue !== this.getPrimaryValue()) {
       this.resetSecondary();
     }
-    if (this.props.combined) {
-      const prevCombinedValue = getIn(prevProps.formik.values, this.props.combined, []);
-      this.updateCombinedValue(prevCombinedValue);
-    }
   }
 
   getPrimaryValue = () => {
@@ -27,17 +22,6 @@ class ConditionalField extends React.Component {
   getSecondaryValue = () => {
     return getIn(this.props.formik.values, this.props.secondary, "");
   };
-
-  updateCombinedValue(previousValue) {
-    const primaryVal = this.getPrimaryValue();
-    const secondaryVal = this.getSecondaryValue();
-    if (primaryVal.length > 0 && secondaryVal.length > 0) {
-      const combined = [primaryVal,secondaryVal];
-      if (false === isEqual(previousValue.sort(), combined.sort())) {
-        this.props.formik.setFieldValue(this.props.combined, combined.sort());
-      }
-    }
-  }
 
   resetSecondary = () => {
     this.props.formik.setFieldValue(this.props.secondary, "");
