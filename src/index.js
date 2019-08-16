@@ -1,6 +1,6 @@
 import Checkbox from 'fields/Checkbox'
 import CheckboxGroup from 'fields/CheckboxGroup'
-import ConditionalField from 'fields/ConditionalField'
+import ConditionalSelect from 'fields/ConditionalSelect'
 import DateSelect from 'fields/DateSelect'
 import MultiSelect from 'fields/MultiSelect'
 import Password from 'fields/Password'
@@ -20,12 +20,12 @@ import EditorState from 'lib/EditorState'
 export {
   Checkbox,
   CheckboxGroup,
-  ConditionalField,
   DateSelect,
   MultiSelect,
   Password,
   RadioGroup,
   Select,
+  ConditionalSelect,
   Switch,
   TextField,
   Editor,
