@@ -31,6 +31,7 @@ class MultiSelect extends React.Component {
     const {
       variant,
       ListItemText,
+      defaultOption,
       maxItems,
       label,
       addText,
@@ -40,13 +41,13 @@ class MultiSelect extends React.Component {
       form
     } = this.props;
     const { selectorVisible } = this.state;
-    const selections = getIn(form.values, name);
-    const options = disableSelected(this.props.options, selections);
+    const values = getIn(form.values, name);
+    const options = disableSelected(this.props.options, values);
     return (
       <FormControl name={name} helperText={helperText} label={label}>
         <SelectionList
           disabled={form.isSubmitting}
-          selections={selections}
+          values={values}
           options={options}
           removeItem={this.removeItem}
           ListItemText={ListItemText}
@@ -59,10 +60,11 @@ class MultiSelect extends React.Component {
         <Selector
           onHide={() => this.toggleSelector()}
           visible={selectorVisible}
-          disabled={selections.length >= maxItems || form.isSubmitting}
+          disabled={values.length >= maxItems || form.isSubmitting}
           variant={variant}
           addItem={this.addItem}
           options={options}
+          defaultOption={defaultOption}
           name={name}
           buttonText={addText}
         />
@@ -73,6 +75,7 @@ class MultiSelect extends React.Component {
 
 MultiSelect.defaultProps = {
   options: [],
+  defaultOption: { label: "Please select...", value: "0" },
   maxItems: 10,
   addText: "Add",
   addNewText: "Add new item",

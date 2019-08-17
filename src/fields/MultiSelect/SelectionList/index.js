@@ -6,23 +6,24 @@ import MuiListItemText from "@material-ui/core/ListItemText";
 import ListItemSecondaryAction from "@material-ui/core/ListItemSecondaryAction";
 import IconButton from "@material-ui/core/IconButton";
 import DeleteIcon from "@material-ui/icons/Delete";
+import DeleteIcon2 from "@material-ui/icons/Close";
 import styles from "./styles";
 
 const SelectionList = ({
   classes,
   removeItem,
-  selections,
+  values,
   options,
   ListItemText,
   disabled
 }) => {
-  if (selections.length < 1) {
+  if (values.length < 1) {
     return null;
   }
   return (
     <List>
       {options
-        .filter(option => selections.includes(option.value))
+        .filter(option => values.includes(option.value))
         .map((item, index) => (
           <ListItem
             disabled={disabled}
@@ -39,7 +40,7 @@ const SelectionList = ({
                 onClick={() => removeItem(index)}
                 disabled={disabled}
               >
-                <DeleteIcon />
+                <DeleteIcon2 className={classes.delete} />
               </IconButton>
             </ListItemSecondaryAction>
           </ListItem>

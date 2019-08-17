@@ -16,7 +16,7 @@ storiesOf('Dropdowns', module)
     <Form
       schema={schema}
       initialValues={{
-        kingdoms: [],
+        kingdoms: "",
       }}
     >
       <Divider title='Single selector'>

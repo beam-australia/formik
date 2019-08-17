@@ -8,75 +8,42 @@ import { connect } from "formik";
 import styles from "./styles";
 
 class Single extends React.Component {
-  state = {
-    selection: ""
-  };
-
-  componentDidMount() {
-    this.setInitialState();
-  }
-
-  setInitialState = () => {
-    const selection = this.props.options.length
-      ? this.props.options[0].value
-      : "";
-    this.setState({ selection });
-  };
-
   onChange = ({ target: { value } }) => {
-    this.setState({ selection: value });
-  };
-
-  onAddItem = () => {
-    this.props.addItem(this.state.selection);
+    if (value !== this.props.defaultOption.value) {
+      this.props.addItem(value);
+    }
   };
 
   render() {
     const {
+      defaultOption,
       options,
-      buttonText,
       variant,
       classes,
       disabled,
       visible,
       onHide
     } = this.props;
-    const { selection } = this.state;
     if (visible === false) {
       return null;
     }
     return (
       <div className={classes.root}>
         <Grid container spacing={1}>
-          <Grid item xs={12}>
+          <Grid item xs={10}>
             <Select
               disabled={disabled}
               variant={variant}
-              options={options}
+              options={[defaultOption, ...options]}
               onChange={this.onChange}
-              value={selection}
+              value={"0"}
             />
           </Grid>
-          <Grid item xs={6} md={3}>
+          <Grid item xs={2}>
             <Button
               fullWidth
               disabled={disabled}
-              size="medium"
-              className={classNames({
-                [classes.outlinedButton]: variant === "outlined" ? true : false
-              })}
-              variant="contained"
-              color="secondary"
-              onClick={this.onAddItem}
-            >
-              {buttonText}
-            </Button>
-          </Grid>
-          <Grid item xs={2} md={3}>
-            <Button
-              fullWidth
-              disabled={disabled}
-              size="medium"
+              size="large"
               className={classNames({
                 [classes.outlinedButton]: variant === "outlined" ? true : false
               })}
