@@ -11,6 +11,7 @@ import TextField from 'fields/TextField'
 import Editor from 'fields/Editor'
 import Upload from 'fields/Upload'
 
+import FormControl from 'components/FormControl'
 import FormStatus from 'components/FormStatus'
 import SubmitButton from 'components/SubmitButton'
 
@@ -30,6 +31,7 @@ export {
   TextField,
   Editor,
   Upload,
+  FormControl,
   FormStatus,
   SubmitButton,
   Handlers,
