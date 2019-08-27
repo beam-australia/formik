@@ -24,7 +24,6 @@ class DateSelect extends React.Component {
   setFieldValue = (year, month, day) => {
     const date = new Date(year, month, day, 17);
     const formated = format(date, this.props.format);
-    console.log(formated);
     this.props.form.setFieldValue(this.props.field.name, formated);
     this.props.form.setFieldTouched(this.props.field.name);
   };
