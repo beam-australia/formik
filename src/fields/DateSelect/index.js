@@ -39,9 +39,7 @@ class DateSelect extends React.Component {
       disabled: form.isSubmitting,
       onChange: this.onChange
     };
-    console.log('field.value', field.value);
     const date = new Date(field.value);
-    console.log('date', date);
     return (
       <FormControl name={field.name} helperText={helperText} label={label}>
         <Grid container spacing={5}>
