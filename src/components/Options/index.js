@@ -4,9 +4,9 @@ import capitalize from "capitalize";
 
 export const Options = ({ options }) => (
   <React.Fragment>
-    {options.map(option => (
+    {options.map((option, index) => (
       <option
-        key={option.value}
+        key={option.value || index}
         value={option.value}
         disabled={Boolean(option.disabled)}
       >
