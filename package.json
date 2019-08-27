@@ -22,6 +22,7 @@
   },
   "dependencies": {
     "capitalize": "^2.0.0",
+    "date-fns": "^2.0.1",
     "deep-rename-keys": "^0.2.1",
     "formik-material-ui": "^0.0.19",
     "obj-traverse": "^1.0.0"

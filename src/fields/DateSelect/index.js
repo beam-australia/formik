@@ -1,4 +1,5 @@
 import React from "react";
+import format from "date-fns/format";
 import Grid from "@material-ui/core/Grid";
 import FormControl from "components/FormControl";
 import Select from "components/Select";
@@ -21,15 +22,15 @@ class DateSelect extends React.Component {
   };
 
   setFieldValue = (year, month, day) => {
-    this.props.form.setFieldValue(
-      this.props.field.name,
-      new Date(year, month, day)
-    );
+    const date = new Date(year, month, day, 17);
+    const formated = format(date, this.props.format);
+    console.log(formated);
+    this.props.form.setFieldValue(this.props.field.name, formated);
     this.props.form.setFieldTouched(this.props.field.name);
   };
 
   numberOfCols = () => {
-    return 12 / this.props.format.length;
+    return 12 / this.props.fields.length;
   };
 
   render() {
@@ -39,11 +40,13 @@ class DateSelect extends React.Component {
       disabled: form.isSubmitting,
       onChange: this.onChange
     };
+    console.log('field.value', field.value);
     const date = new Date(field.value);
+    console.log('date', date);
     return (
       <FormControl name={field.name} helperText={helperText} label={label}>
         <Grid container spacing={5}>
-          {this.props.format.includes("d") && (
+          {this.props.fields.includes("d") && (
             <Grid item sm={this.numberOfCols()}>
               <Select
                 {...selectProps}
@@ -57,7 +60,7 @@ class DateSelect extends React.Component {
               />
             </Grid>
           )}
-          {this.props.format.includes("m") && (
+          {this.props.fields.includes("m") && (
             <Grid item sm={this.numberOfCols()}>
               <Select
                 {...selectProps}
@@ -71,7 +74,7 @@ class DateSelect extends React.Component {
               />
             </Grid>
           )}
-          {this.props.format.includes("y") && (
+          {this.props.fields.includes("y") && (
             <Grid item sm={this.numberOfCols()}>
               <Select
                 {...selectProps}
@@ -92,7 +95,8 @@ class DateSelect extends React.Component {
 }
 
 DateSelect.defaultProps = {
-  format: "dmy"
+  format: "yyyy-MM-dd H:m:s",
+  fields: "dmy"
 };
 
 export default DateSelect;

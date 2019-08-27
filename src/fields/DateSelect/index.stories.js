@@ -40,7 +40,7 @@ storiesOf('Dropdowns', module)
           name='discovered_at'
           label='Species first discovered at'
           helperText='Must be more recent the year 2000'
-          format='my'
+          fields='my'
           component={DateSelect}
         />
       </Divider>
@@ -49,7 +49,7 @@ storiesOf('Dropdowns', module)
           name='discovered_at'
           label='Species first discovered at'
           helperText='Must be more recent the year 2000'
-          format='dm'
+          fields='dm'
           component={DateSelect}
         />
       </Divider>
