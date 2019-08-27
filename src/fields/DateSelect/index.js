@@ -22,7 +22,7 @@ class DateSelect extends React.Component {
   };
 
   setFieldValue = (year, month, day) => {
-    const date = new Date(year, month, day, 17);
+    const date = new Date(year, month, day, 23, 59, 59);
     const formated = format(date, this.props.format);
     this.props.form.setFieldValue(this.props.field.name, formated);
     this.props.form.setFieldTouched(this.props.field.name);
@@ -92,7 +92,7 @@ class DateSelect extends React.Component {
 }
 
 DateSelect.defaultProps = {
-  format: "yyyy-MM-dd H:m:s",
+  format: "yyyy-MM-dd HH:mm:ss",
   fields: "dmy"
 };
 
