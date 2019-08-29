@@ -15,7 +15,7 @@ import FormControl from "components/FormControl";
 import FormStatus from "components/FormStatus";
 import SubmitButton from "components/SubmitButton";
 import Dropdown from "components/Select";
-import Options from "components/Options";
+import { Options, OptionGroups } from "components/Options";
 
 import Handlers from "lib/Handlers";
 import EditorState from "lib/EditorState";
@@ -39,5 +39,6 @@ export {
   Handlers,
   EditorState,
   Options,
+  OptionGroups,
   Dropdown
 };
