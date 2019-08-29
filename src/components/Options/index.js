@@ -6,7 +6,7 @@ export const Options = ({ options }) => (
   <React.Fragment>
     {options.map((option, index) => (
       <option
-        key={option.value || index}
+        key={option.value || option.label}
         value={option.value}
         disabled={Boolean(option.disabled)}
       >
