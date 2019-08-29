@@ -2,7 +2,7 @@ import React from "react";
 import format from "date-fns/format";
 import Grid from "@material-ui/core/Grid";
 import FormControl from "components/FormControl";
-import Select from "components/Select";
+import Dropdown from "components/Dropdown";
 import { years, months, days } from "lib/dates";
 
 class DateSelect extends React.Component {
@@ -45,7 +45,7 @@ class DateSelect extends React.Component {
         <Grid container spacing={5}>
           {this.props.fields.includes("d") && (
             <Grid item sm={this.numberOfCols()}>
-              <Select
+              <Dropdown
                 {...selectProps}
                 value={field.value ? date.getDate() : ""}
                 inputProps={{
@@ -59,7 +59,7 @@ class DateSelect extends React.Component {
           )}
           {this.props.fields.includes("m") && (
             <Grid item sm={this.numberOfCols()}>
-              <Select
+              <Dropdown
                 {...selectProps}
                 value={field.value ? date.getMonth() : ""}
                 inputProps={{
@@ -73,7 +73,7 @@ class DateSelect extends React.Component {
           )}
           {this.props.fields.includes("y") && (
             <Grid item sm={this.numberOfCols()}>
-              <Select
+              <Dropdown
                 {...selectProps}
                 value={field.value ? date.getFullYear() : ""}
                 inputProps={{

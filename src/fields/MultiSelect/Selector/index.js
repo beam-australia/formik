@@ -3,7 +3,7 @@ import classNames from "classnames";
 import { withStyles } from "@material-ui/core/styles";
 import Grid from "@material-ui/core/Grid";
 import Button from "@material-ui/core/Button";
-import Select from "components/Select";
+import Dropdown from "components/Dropdown";
 import { connect } from "formik";
 import styles from "./styles";
 
@@ -31,7 +31,7 @@ class Single extends React.Component {
       <div className={classes.root}>
         <Grid container spacing={1}>
           <Grid item xs={10}>
-            <Select
+            <Dropdown
               disabled={disabled}
               variant={variant}
               options={[defaultOption, ...options]}

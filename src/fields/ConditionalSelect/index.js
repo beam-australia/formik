@@ -2,7 +2,7 @@ import React from "react";
 import find from "lodash/find";
 import Grid from "@material-ui/core/Grid";
 import FormControl from "components/FormControl";
-import Select from "components/Select";
+import Dropdown from "components/Dropdown";
 import { getIn } from "formik";
 
 class ConditionalSelect extends React.Component {
@@ -47,7 +47,7 @@ class ConditionalSelect extends React.Component {
       <FormControl name={field.name} helperText={helperText} label={label}>
         <Grid container spacing={5}>
           <Grid item xs={12} sm={6}>
-            <Select
+            <Dropdown
               {...selectProps}
               value={this.getPrimaryState()}
               options={this.props.options}
@@ -60,7 +60,7 @@ class ConditionalSelect extends React.Component {
             />
           </Grid>
           <Grid item xs={12} sm={6}>
-            <Select
+            <Dropdown
               {...selectProps}
               value={this.getSecondaryState()}
               options={this.getSecondaryOptions()}
