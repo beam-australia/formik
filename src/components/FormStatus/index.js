@@ -4,11 +4,12 @@ import classNames from "classnames";
 import ErrorIcon from "@material-ui/icons/ErrorOutline";
 import SuccessIcon from "@material-ui/icons/Done";
 import Typography from "@material-ui/core/Typography";
-import { withStyles } from "@material-ui/core/styles";
 import getFieldErrors from "./getFieldErrors";
 import useStyles from "./styles";
 
-export const FromStatus = ({ formik, margin, successMessage }) => {
+export const FromStatus = ({ formik, margin, successMessage, ...props }) => {
+  console.log('FromStatus.formik', formik);
+  console.log('FromStatus.props', props);
   // Get errors
   const errors = getFieldErrors(formik);
 

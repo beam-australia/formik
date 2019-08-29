@@ -35,8 +35,8 @@
     "draft-js": "^0.10.0",
     "formik": "^1.5.8",
     "prop-types": "^15.0.0",
-    "react": "^16.0.0",
-    "react-dom": "^16.0.0",
+    "react": "^16.9.0",
+    "react-dom": "^16.9.0",
     "react-draft-wysiwyg": "^1.0.0"
   },
   "devDependencies": {

@@ -2,6 +2,7 @@ import { getIn } from "formik";
 
 function exception(response, actions) {
   let message = "";
+  console.log('Handlers.exception', response);
   if (response.statusCode > 499 || !response.statusCode) {
     message = "The site is experiencing technical difficulties.";
   } else {

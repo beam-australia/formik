@@ -1,5 +1,4 @@
 import React from 'react'
-import PropTypes from 'prop-types'
 import { connect } from 'formik'
 import { withStyles } from '@material-ui/core/styles'
 import MuiFormControl from '@material-ui/core/FormControl'
@@ -24,10 +23,6 @@ const FormControl = ({ children, name, formik, helperText, label, classes, ...pr
       {text && <FormHelperText>{text}</FormHelperText>}
     </MuiFormControl>
   )
-}
-
-FormControl.propTypes = {
-
 }
 
 FormControl.defaultProps = {
