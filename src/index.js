@@ -14,7 +14,7 @@ import Upload from "fields/Upload";
 import FormControl from "components/FormControl";
 import FormStatus from "components/FormStatus";
 import SubmitButton from "components/SubmitButton";
-import Dropdown from "components/Select";
+import Dropdown from "components/Dropdown";
 import { Options, OptionGroups } from "components/Options";
 
 import Handlers from "lib/Handlers";
