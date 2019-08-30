@@ -5,7 +5,7 @@ function createEmpty() {
   return EditorState.createEmpty();
 }
 
-function createWithContent(html) {
+function createWithContent(html = '') {
   return EditorState.createWithContent(convertFromHTML(html));
 }
 
