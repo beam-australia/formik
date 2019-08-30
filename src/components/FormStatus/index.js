@@ -7,9 +7,7 @@ import Typography from "@material-ui/core/Typography";
 import getFieldErrors from "./getFieldErrors";
 import useStyles from "./styles";
 
-export const FromStatus = ({ formik, margin, successMessage, ...props }) => {
-  console.log('FromStatus.formik', formik);
-  console.log('FromStatus.props', props);
+export const FromStatus = ({ formik, margin, successMessage }) => {
   // Get errors
   const errors = getFieldErrors(formik);
 

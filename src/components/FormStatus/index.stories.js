@@ -5,7 +5,7 @@ import Divider from "testing/Divider";
 import Form from "testing/Form";
 import { Field } from "formik";
 import * as Actions from "testing/Form/actions";
-import FormResponse from "./";
+import FormStatus from "./";
 import TextField from "fields/TextField";
 
 const schema = Yup.object().shape({
@@ -40,7 +40,7 @@ storiesOf("Form Status", module)
           helperText="Latin scientific name for the species"
           component={TextField}
         />
-        <FormResponse />
+        <FormStatus />
       </Divider>
     </Form>
   ))
@@ -66,7 +66,7 @@ storiesOf("Form Status", module)
           helperText="Latin scientific name for the species"
           component={TextField}
         />
-        <FormResponse
+        <FormStatus
           successMessage="We have created your entry!"
         />
       </Divider>

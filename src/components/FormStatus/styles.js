@@ -11,27 +11,24 @@ export default makeStyles(theme => ({
   },
   root: {
     display: "flex",
-    justifyContent: 'center',
+    justifyContent: "center",
     flexDirection: "row",
     margin: 0
   },
   icon: {
-
-    display: 'flex',
-    alignItems: 'center',
-    justifyContent: 'center',
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "center",
     paddingRight: theme.spacing(2)
   },
-  text: {
-
-  },
+  text: {},
   errorItems: {},
   errorItem: {
-    padding: '5px 0',
-    textAlign: 'center',
+    padding: "5px 0",
+    textAlign: "center"
   },
   message: {
-    fontWeight: 500,
+    fontWeight: 500
   },
   typography: {
     marginTop: 2,
