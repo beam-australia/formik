@@ -6,16 +6,19 @@ function createEmpty() {
   return EditorState.createEmpty();
 }
 
-function createWithContent(html = '') {
+function createWithContent(html = "") {
   return EditorState.createWithContent(convertFromHTML(html));
 }
 
 function saveToString(values, field) {
-  const html = convertToHTML(values[field].getCurrentContent());
-  return {
-    ...values,
-    [field]: html
-  };
+  if (values[field] && typeof values[field].getCurrentContent === "function") {
+    const html = convertToHTML(values[field].getCurrentContent());
+    return {
+      ...values,
+      [field]: html
+    };
+  }
+  return values;
 }
 
 export default {
