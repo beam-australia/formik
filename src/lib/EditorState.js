@@ -5,7 +5,10 @@ function createEmpty() {
   return EditorState.createEmpty();
 }
 
-function createWithContent(html = '') {
+function createWithContent(html) {
+  if (html === undefined) {
+    return undefined;
+  }
   return EditorState.createWithContent(convertFromHTML(html));
 }
 
