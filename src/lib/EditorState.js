@@ -1,5 +1,4 @@
-import { getIn } from "formik";
-import { EditorState, convertFromRaw, convertToRaw } from "draft-js";
+import { EditorState } from "draft-js";
 import { convertToHTML, convertFromHTML } from "draft-convert";
 
 function createEmpty() {
