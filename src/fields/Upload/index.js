@@ -7,7 +7,7 @@ import MapUpload from "../../lib/MapUpload";
 import TusUpload, {
   propTypes as tusPropTypes,
   FilePreview
-} from "@beam-australia/material-tus";
+} from "@beam-australia/mui-tus-upload";
 import styles from "./styles";
 
 class Upload extends React.Component {

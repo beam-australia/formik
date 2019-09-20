@@ -901,10 +901,10 @@
     lodash "^4.17.13"
     to-fast-properties "^2.0.0"
 
-"@beam-australia/material-tus@^0.8.2":
-  version "0.8.4"
-  resolved "https://registry.yarnpkg.com/@beam-australia/material-tus/-/material-tus-0.8.4.tgz#3d40357e871b5e5a8566105b22ae864e373bf787"
-  integrity sha512-xigccGUMUDminPOrthwVPIV32thNZSP93IgjkhogygaZi2zDmNKjsA1WNSfAqHAtMaL1cAR29/oA7IPYt2nHxw==
+"@beam-australia/mui-tus-upload@^0.8.6":
+  version "0.8.6"
+  resolved "https://registry.yarnpkg.com/@beam-australia/mui-tus-upload/-/mui-tus-upload-0.8.6.tgz#7bca1d0aaf586fd4a114f280544e4210403f49d6"
+  integrity sha512-V2krC1AVRMaP0h/w1ZYLNjIYurWrmp3gMzjH4y4SWsTEM1fdJsjh2VH+VoHEhLTBFqmkwdOQq4F7LGgShkt4Dg==
   dependencies:
     pretty-bytes "^5.1.0"
     tus-js-client "^1.8.0-2"
