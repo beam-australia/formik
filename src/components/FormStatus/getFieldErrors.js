@@ -5,12 +5,10 @@
  */
 export default function getFieldErrors(formik) {
   const fieldErrors = [];
-  const { errors, touched } = formik;
-  if (touched && touched.length) {
-    Object.keys(touched).forEach(key => {
-      if (errors && errors.hasOwnProperty(key)) {
+  const { errors, submitCount } = formik;
+  if (submitCount > 0) {
+    Object.keys(errors).forEach(key => {
         fieldErrors.push(errors[key]);
-      }
     });
   }
   return fieldErrors;

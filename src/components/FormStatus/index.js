@@ -15,20 +15,28 @@ export const FromStatus = ({ formik, margin, successMessage }) => {
   const status = formik.status || {};
 
   // determine if we should be displaying messages
-  // if (errors.length > 0 || typeof status.success !== "undefined" && formik.) {
+  // if (errors.length > 0 || typeof status.success !== "undefined" && formik) {
   if (errors.length > 0 || status.success === true) {
     // do nothing
   } else {
     return null;
   }
 
-  const message = status.success ? successMessage : status.message;
+  const success = Boolean(errors.length < 1 && status.success === true);
+
+  let message = status.message;
+
+  if (success === true) {
+    message = successMessage;
+  } else if (success === false) {
+    message = '';
+  }
 
   const classes = useStyles();
 
   const errorClass = {
     [classes.error]: errors.length > 0 === true,
-    [classes.success]: status.success === true
+    [classes.success]: success === true
   };
 
   const marginClass = {
@@ -38,7 +46,7 @@ export const FromStatus = ({ formik, margin, successMessage }) => {
   return (
     <div className={classNames(classes.root, errorClass, marginClass)}>
       <div className={classes.icon}>
-        {status.success ? <SuccessIcon /> : <ErrorIcon />}
+        {success === true ? <SuccessIcon /> : <ErrorIcon />}
       </div>
       <div className={classes.text}>
         {message && (
