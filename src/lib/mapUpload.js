@@ -18,7 +18,12 @@ function fromTusUpload(upload) {
   };
 }
 
+function fromTusToUrl(upload) {
+  return upload.url;
+}
+
 export default {
   toTusUpload,
-  fromTusUpload
+  fromTusUpload,
+  fromTusToUrl
 };

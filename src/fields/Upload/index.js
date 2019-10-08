@@ -1,7 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
 import FormControl from "../../components/FormControl";
-import FormLabel from "@material-ui/core/FormLabel";
 import { withStyles } from "@material-ui/core/styles";
 import MapUpload from "../../lib/MapUpload";
 import TusUpload, {
@@ -15,7 +14,7 @@ class Upload extends React.Component {
     this.props.form.setFieldTouched(this.props.field.name);
     this.props.form.setFieldValue(
       this.props.field.name,
-      MapUpload.fromTusUpload(state.upload)
+      this.mapUpload(state.upload)
     );
   };
 
@@ -27,6 +26,12 @@ class Upload extends React.Component {
   onReset = () => {
     this.props.form.setFieldValue(this.props.field.name, null);
     this.props.form.setFieldTouched(this.props.field.name, false);
+  };
+
+  mapUpload = upload => {
+    return this.props.returnType === "string"
+      ? MapUpload.fromTusToUrl(upload)
+      : MapUpload.fromTusUpload(upload);
   };
 
   render() {
@@ -75,11 +80,13 @@ class Upload extends React.Component {
 
 Upload.propTypes = {
   initialPreview: PropTypes.bool,
+  returnType: PropTypes.oneOf(["object","string"]),
   ...tusPropTypes
 };
 
 Upload.defaultProps = {
-  initialPreview: false
+  initialPreview: false,
+  returnType: "object",
 };
 
 export default withStyles(styles)(Upload);

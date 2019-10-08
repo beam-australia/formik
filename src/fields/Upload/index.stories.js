@@ -7,7 +7,8 @@ import Form from "testing/Form";
 import Upload from "./";
 
 const schema = Yup.object().shape({
-  researchPaper: Yup.object().required()
+  researchPaper: Yup.object().required(),
+  researchPaperUrl: Yup.string(),
 });
 
 storiesOf("Fields", module).add("Upload", () => (
@@ -19,7 +20,8 @@ storiesOf("Fields", module).add("Upload", () => (
         name: "technical-interview_4.pdf",
         size: 88653,
         url: "https://uploads-service-rwsmqzynba-uc.a.run.app/0765b578e5ca2241414c1f55b308c239"
-      }
+      },
+      researchPaperUrl: ""
     }}
   >
     <Divider title="Document preset, filesize limit">
@@ -57,6 +59,16 @@ storiesOf("Fields", module).add("Upload", () => (
         maxFileSize={25000000}
         component={Upload}
         initialPreview={true}
+      />
+    </Divider>
+    <Divider title="String return type">
+      <Field
+        name="researchPaperUrl"
+        label="Research paper url"
+        allowedFileTypes="documents"
+        maxFileSize={25000000}
+        component={Upload}
+        returnType="string"
       />
     </Divider>
   </Form>
