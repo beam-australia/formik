@@ -14,31 +14,39 @@ class Editor extends React.Component {
     const {
       label,
       placeholder,
-      field: { name, value }
+      field: { name, value },
+      editorProps,
+      toolbarProps
     } = this.props;
     return (
       <FormControl name={name} label={label}>
         <Draft
+          {...editorProps}
           editorState={value}
           onEditorStateChange={this.onEditorChange}
           wrapperClassName="draft-js"
           editorClassName="draft-js-editor"
           placeholder={placeholder}
-          toolbar={{
-            options: ["inline", "blockType", "list", "textAlign", "link"],
-            inline: {
-              inDropdown: false,
-              options: ["bold", "italic", "underline"]
-            },
-            blockType: { options: ["Normal", "H1", "H2"] },
-            textAlign: {
-              options: ["left", "center"]
-            }
-          }}
+          toolbar={toolbarProps}
         />
       </FormControl>
     );
   }
 }
+
+Editor.defaultProps = {
+  editorProps: {},
+  toolbarProps: {
+    options: ["inline", "blockType", "list", "textAlign", "link"],
+    inline: {
+      inDropdown: false,
+      options: ["bold", "italic", "underline"]
+    },
+    blockType: { options: ["Normal", "H1", "H2"] },
+    textAlign: {
+      options: ["left", "center"]
+    }
+  }
+};
 
 export default Editor;
