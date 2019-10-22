@@ -2,7 +2,7 @@ import { EditorState } from "draft-js";
 import { convertToHTML, convertFromHTML } from "draft-convert";
 
 function stateToHTML(editorState) {
-  convertToHTML({
+  return convertToHTML({
     blockToHTML: (block) => {
       if (block.type === 'PARAGRAPH') {
         return <p />;
