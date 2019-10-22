@@ -1,6 +1,16 @@
 import { EditorState } from "draft-js";
 import { convertToHTML, convertFromHTML } from "draft-convert";
 
+function stateToHTML(editorState) {
+  convertToHTML({
+    blockToHTML: (block) => {
+      if (block.type === 'PARAGRAPH') {
+        return <p />;
+      }
+    },
+  })(editorState.getCurrentContent());  
+}
+
 function createEmpty() {
   return EditorState.createEmpty();
 }
@@ -11,7 +21,7 @@ function createWithContent(html = "") {
 
 function saveToString(values, field) {
   if (values[field] && typeof values[field].getCurrentContent === "function") {
-    const html = convertToHTML(values[field].getCurrentContent());
+    const html = stateToHTML(values[field]);
     return {
       ...values,
       [field]: html
