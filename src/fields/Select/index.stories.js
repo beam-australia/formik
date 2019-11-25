@@ -67,6 +67,17 @@ storiesOf('Dropdowns', module)
           options={animals}
         />
       </Divider>
+      <Divider title='Mixed groupings'>
+        <Field
+          name='animals'
+          label='Species class'
+          helperText='Should be one of "arachnid" or "hagfish"'
+          variant='outlined'
+          group={true}
+          component={Select}
+          options={animals}
+        />
+      </Divider>      
       <Divider title='Recieves array as value'>
         <Field
           name='invertebrate'

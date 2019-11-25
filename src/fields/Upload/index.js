@@ -2,7 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 import FormControl from "../../components/FormControl";
 import { withStyles } from "@material-ui/core/styles";
-import MapUpload from "../../lib/MapUpload";
+import MapUpload from "../../lib/mapUpload";
 import TusUpload, {
   propTypes as tusPropTypes,
   FilePreview

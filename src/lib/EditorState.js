@@ -1,14 +1,15 @@
+import React from "react";
 import { EditorState } from "draft-js";
 import { convertToHTML, convertFromHTML } from "draft-convert";
 
 function stateToHTML(editorState) {
   return convertToHTML({
-    blockToHTML: (block) => {
-      if (block.type === 'PARAGRAPH') {
+    blockToHTML: block => {
+      if (block.type === "PARAGRAPH") {
         return <p />;
       }
-    },
-  })(editorState.getCurrentContent());  
+    }
+  })(editorState.getCurrentContent());
 }
 
 function createEmpty() {
