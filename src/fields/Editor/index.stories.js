@@ -27,6 +27,7 @@ storiesOf("Fields", module).add("Editor", () => (
         <Field
           name="researchPaper"
           placeholder="Hello World."
+          helperText="This is the helper text you are looking at"
           label="Type your reasearch paper"
           component={Editor}
         />

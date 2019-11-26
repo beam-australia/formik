@@ -14,12 +14,13 @@ class Editor extends React.Component {
     const {
       label,
       placeholder,
+      helperText,
       field: { name, value },
       editorProps,
       toolbarProps
     } = this.props;
     return (
-      <FormControl name={name} label={label}>
+      <FormControl name={name} label={label} helperText={helperText}>
         <Draft
           {...editorProps}
           editorState={value}
@@ -35,6 +36,7 @@ class Editor extends React.Component {
 }
 
 Editor.defaultProps = {
+  helperText: "",
   editorProps: {},
   toolbarProps: {
     options: ["inline", "blockType", "list", "textAlign", "link"],
